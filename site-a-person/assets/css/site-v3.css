@@ -1,0 +1,549 @@
+/* ==========================================================================
+   v3 디자인 보강 — 통계 밴드, 후기, 지도, 예약 폼, 서비스 썸네일
+   site.css 뒤에 로드됩니다.
+   ========================================================================== */
+
+/* 로고의 시안 블루에 맞춰 액센트를 재조정 (골드 → 클리니컬 시안) */
+:root {
+  --gold: #1f7398;      /* 아이보리 위 텍스트/보더용 딥 시안 */
+  --gold-2: #62b9de;    /* 다크 배경 위 액센트 */
+  --gold-3: #d3edf9;
+  --accent-deep: #12455c;
+}
+
+/* 원본 로고 (제공된 파일 사용) */
+.brand__logo {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+.masthead__inner { min-height: 72px; }
+
+/* 푸터: 로고 + 부제 텍스트를 CSS로 조판해 작은 글씨도 선명하게 */
+.brand--footer {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.foot .brand__logo { height: 74px; }
+.brand__tagline {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+}
+
+@media (max-width: 720px) {
+  .brand__logo { height: 42px; }
+  .foot .brand__logo { height: 58px; }
+  .masthead__inner { min-height: 68px; }
+}
+
+/* ------------------------------------------------------------- icons (v5) */
+.ico {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.14em;
+  margin-right: 0.45em;
+  opacity: 0.9;
+  flex: none;
+}
+.topbar__tel .ico { margin-right: 0.4em; }
+.foot ul .ico { color: var(--gold-2); opacity: 1; width: 1.05em; height: 1.05em; }
+.office__meta .ico { color: var(--gold); }
+.btn .ico { margin-right: 0.55em; }
+
+/* ------------------------------------------------- doctors: 원형 사진 (v5) */
+.doc__photo {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  max-width: 400px;
+  width: 100%;
+  margin-inline: auto;
+  box-shadow: 0 34px 70px -46px rgb(var(--ink-rgb) / 0.6);
+}
+.doc__photo img { object-position: center 22%; }
+.doc__photo--monogram {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  color: var(--gold-2);
+}
+.doc__photo--monogram::after { inset: 22px; border-radius: 50%; }
+.doc { justify-items: center; text-align: center; }
+.doc .doc__bio { max-width: 46ch; }
+.doc__role { margin-top: 0.2rem; }
+
+/* 캡처/인쇄용: 애니메이션 없이 최종 상태 (html.no-anim) */
+.no-anim .reveal,
+html.no-anim .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* 히어로 팩트 행은 폭 제한 해제 */
+.hero__facts { max-width: none; }
+.hero__facts .hero__fact { min-width: 150px; }
+
+/* ---------------------------------------------------- hero ornaments (v6) */
+.hero__head {
+  position: relative;
+  padding-left: clamp(0px, 1.6vw, 26px);
+  padding-right: clamp(0px, 1.6vw, 26px);
+}
+.hero__q {
+  position: absolute;
+  width: clamp(38px, 4vw, 56px);
+  height: auto;
+  color: var(--gold-2);
+  pointer-events: none;
+}
+.hero__q--open {
+  top: clamp(-44px, -3.4vw, -26px);
+  left: clamp(-6px, -0.4vw, 0px);
+  opacity: 0.55;
+}
+.hero__q--close {
+  right: clamp(-10px, -0.6vw, 0px);
+  bottom: clamp(-14px, -0.8vw, -4px);
+  transform: rotate(180deg); /* 닫는 따옴표: 꼬리가 아래로 (99 모양) */
+  opacity: 0.38;
+}
+
+.hero__rule-row {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin: 1.35rem 0 1.25rem;
+  max-width: 330px;
+}
+.hero__rule {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, rgb(var(--sky-rgb) / 0.95), rgb(var(--sky-rgb) / 0.04));
+}
+
+
+/* 내비게이션: 진한 글자 + 시안 호버 이펙트 (mdmoon.com 스타일) */
+.nav__link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  padding: 0.4rem 0;
+  transition: color 0.25s ease;
+}
+.nav__link::after {
+  height: 2px;
+  background: var(--gold);
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.nav__link:hover { color: var(--gold); }
+.nav__link[aria-current="page"] { color: var(--gold); font-weight: 600; }
+.nav__link[aria-current="page"]::after { transform: scaleX(1); }
+html[lang="ko"] .nav__link,
+html[lang^="zh"] .nav__link { font-size: 0.84rem; letter-spacing: 0.01em; }
+
+/* 상단 위치 안내 → 오시는 길 링크 */
+.topbar__note {
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.topbar__note:hover { color: var(--gold-2); }
+.topbar__go {
+  display: inline-block;
+  margin-left: 0.35rem;
+  opacity: 0.5;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.topbar__note:hover .topbar__go { transform: translateX(3px); opacity: 1; }
+
+/* ------------------------------------------------------------ ornaments */
+.section__head .rule {
+  width: 54px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: radial-gradient(rgb(var(--white-rgb) / 0.045) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+}
+
+/* ---------------------------------------------------------------- stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgb(var(--ink-rgb) / 0.12);
+  border-bottom: 1px solid rgb(var(--ink-rgb) / 0.12);
+  margin-top: 0;
+}
+.stats__item {
+  padding: clamp(1.5rem, 3vw, 2.4rem) clamp(1rem, 2vw, 1.8rem);
+  border-right: 1px solid rgb(var(--ink-rgb) / 0.12);
+}
+.stats__item:last-child { border-right: 0; }
+.stats__val {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.stats__val sup {
+  font-size: 0.42em;
+  vertical-align: super;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+.stats__label {
+  margin: 0.7rem 0 0;
+  font-size: var(--t-micro);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(var(--ink-rgb) / 0.55);
+}
+.section--ink .stats { border-color: rgb(var(--ivory-rgb) / 0.16); }
+.section--ink .stats__item { border-color: rgb(var(--ivory-rgb) / 0.16); }
+.section--ink .stats__val { color: var(--ivory); }
+.section--ink .stats__label { color: rgb(var(--ivory-rgb) / 0.55); }
+
+/* --------------------------------------------------------------- video player */
+.video__player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--ink);
+  display: block;
+}
+
+/* --------------------------------------------------------------- gallery */
+.gal__title {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 400;
+  margin: 2.6rem 0 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  letter-spacing: -0.01em;
+}
+.gal__title:first-of-type { margin-top: 0.4rem; }
+.gal__count {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.1rem 0.42rem;
+}
+.svc {
+  padding: 0;
+  overflow: hidden;
+}
+.svc__media {
+  position: relative;
+  flex: 0 0 auto;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ivory-2);
+}
+.svc__media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.6s ease;
+  filter: saturate(0.92) contrast(1.02);
+}
+.svc:hover .svc__media img { transform: scale(1.05); filter: saturate(1); }
+.svc__body {
+  padding: clamp(1.3rem, 2.2vw, 1.9rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.svc__arrow {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  font-size: var(--t-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.svc:hover .svc__arrow em { transform: translateX(4px); }
+.svc__arrow em { font-style: normal; transition: transform 0.3s ease; }
+
+/* ---------------------------------------------------------- testimonials */
+.testi {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgb(var(--ivory-rgb) / 0.18);
+  border: 1px solid rgb(var(--ivory-rgb) / 0.18);
+}
+.testi__item {
+  position: relative;
+  padding: clamp(1.6rem, 3vw, 2.6rem);
+  background: var(--ink);
+}
+.testi__mark {
+  font-family: var(--serif);
+  font-size: 3.4rem;
+  line-height: 0.6;
+  color: var(--gold-2);
+  opacity: 0.55;
+}
+.testi__body {
+  margin: 1rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.02rem, 1.4vw, 1.18rem);
+  font-weight: 300;
+  line-height: 1.62;
+  color: rgb(var(--ivory-rgb) / 0.9);
+}
+.testi__author {
+  margin-top: 1.4rem;
+  font-size: var(--t-micro);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+}
+
+/* ------------------------------------------------------------ long copy */
+.long-copy {
+  max-width: 68ch;
+  margin-top: 1.6rem;
+  color: rgb(var(--ink-rgb) / 0.78);
+  font-weight: 300;
+  line-height: 1.78;
+}
+.long-copy p { margin: 0 0 1.05rem; }
+.long-copy p:first-of-type::first-letter {
+  font-family: var(--serif);
+  font-size: 2.6em;
+  float: left;
+  line-height: 0.86;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--gold);
+}
+html[lang="ko"] .long-copy p:first-of-type::first-letter,
+html[lang^="zh"] .long-copy p:first-of-type::first-letter {
+  float: none;
+  font-size: 1em;
+  color: inherit;
+  padding: 0;
+}
+
+/* -------------------------------------------------------------- offices */
+.office {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: clamp(1.4rem, 3vw, 2.6rem);
+  align-items: stretch;
+  border: 1px solid rgb(var(--ink-rgb) / 0.12);
+  background: var(--surface);
+  margin-bottom: clamp(1.2rem, 2.4vw, 2rem);
+  overflow: hidden;
+}
+.office__body {
+  padding: clamp(1.5rem, 3vw, 2.6rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.office__name {
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.office__addr {
+  margin: 0.2rem 0 0;
+  color: rgb(var(--ink-rgb) / 0.74);
+  font-size: var(--t-body);
+}
+.office__meta {
+  margin: 0.9rem 0 0;
+  display: grid;
+  gap: 0.4rem;
+  font-size: var(--t-small);
+  color: rgb(var(--ink-rgb) / 0.7);
+}
+.office__meta a { color: var(--ink); border-bottom: 1px solid rgb(var(--gold-rgb) / 0.4); }
+.office__meta a:hover { color: var(--gold); }
+.office__actions {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.office__map {
+  min-height: 300px;
+  background: var(--ivory-2);
+  position: relative;
+}
+.office__map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(0.2) contrast(1.02);
+}
+
+/* 지도 로딩 전 패널 (타일이 안 떠도 디자인이 유지되도록) */
+.office__mapbtn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1.5rem;
+  text-align: center;
+  background:
+    radial-gradient(120% 90% at 50% 0%, var(--deep-8) 0%, var(--deep-3) 60%, var(--ink) 100%);
+  color: var(--ivory);
+  cursor: pointer;
+}
+.office__mapbtn:hover .office__pin { transform: translateY(-3px); }
+.office__pin {
+  width: 26px;
+  height: 26px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: var(--gold-2);
+  box-shadow: 0 0 0 6px rgb(var(--sky-rgb) / 0.16);
+  transition: transform 0.3s ease;
+}
+.office__maptext { display: grid; gap: 0.25rem; }
+.office__maptext strong {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.05rem;
+}
+.office__maptext em {
+  font-style: normal;
+  font-size: 0.78rem;
+  color: rgb(var(--ivory-rgb) / 0.66);
+}
+.office__mapcue {
+  margin-top: 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  border-bottom: 1px solid rgb(var(--sky-rgb) / 0.45);
+  padding-bottom: 0.15rem;
+}
+.office__maplink {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 2;
+  padding: 0.42rem 0.7rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  background: rgb(var(--white-rgb) / 0.92);
+  border: 1px solid rgb(var(--ink-rgb) / 0.12);
+  border-radius: 2px;
+  color: var(--ink);
+}
+.office__maplink:hover { color: var(--gold); border-color: var(--gold); }
+
+/* -------------------------------------------------------------- form */
+.form__sent {
+  margin: 0 0 1.4rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 2px solid var(--gold);
+  background: rgb(var(--teal-rgb) / 0.08);
+  font-size: var(--t-small);
+  color: var(--ink);
+}
+.form-wrap {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(1.8rem, 4vw, 4rem);
+  align-items: start;
+}
+.form {
+  display: grid;
+  gap: 0.9rem;
+}
+.form__row { display: grid; gap: 0.9rem; grid-template-columns: 1fr 1fr; }
+.field { display: grid; gap: 0.4rem; }
+.field label {
+  font-size: var(--t-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgb(var(--ink-rgb) / 0.6);
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.85rem 0.95rem;
+  font: inherit;
+  font-size: var(--t-body);
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid rgb(var(--ink-rgb) / 0.18);
+  border-radius: 2px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.field textarea { min-height: 140px; resize: vertical; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgb(var(--gold-rgb) / 0.14);
+}
+.form__note {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgb(var(--ink-rgb) / 0.5);
+  line-height: 1.6;
+}
+.form .btn { justify-self: start; margin-top: 0.4rem; }
+.form__hp { position: absolute; left: -9999px; }
+
+/* -------------------------------------------------------------- responsive */
+@media (max-width: 1080px) {
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stats__item:nth-child(2) { border-right: 0; }
+  .stats__item:nth-child(1),
+  .stats__item:nth-child(2) { border-bottom: 1px solid rgb(var(--ink-rgb) / 0.12); }
+  .testi { grid-template-columns: 1fr; }
+  .office { grid-template-columns: 1fr; }
+  .office__map { min-height: 260px; }
+  .form-wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .form__row { grid-template-columns: 1fr; }
+}
+
+/* ------------------------------------------------- services: 6번째 CTA 카드 */
+.svc--cta {
+  background: linear-gradient(155deg, var(--deep-5) 0%, var(--ink) 72%);
+  justify-content: center;
+}
+.svc--cta:hover { background: linear-gradient(155deg, var(--deep-9) 0%, var(--deep-4) 72%); }
+.svc--cta::before { content: none; }
+.svc--cta .svc__title { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.2; }
+.svc--cta .svc__arrow { margin-top: 1.1rem; }

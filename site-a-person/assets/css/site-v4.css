@@ -1,0 +1,248 @@
+/* ==========================================================================
+   v8 — 가로 롤링 배너 (진료 분야 아래)
+   ========================================================================== */
+
+.promo {
+  position: relative;
+  padding-block: clamp(2.4rem, 4vw, 3.6rem);
+  background: var(--ink);
+  color: var(--ivory);
+  overflow: hidden;
+}
+.promo__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: clamp(1.4rem, 2.4vw, 2rem);
+}
+.promo__head .eyebrow { color: var(--gold-2); }
+.promo__head .eyebrow::before { background: currentColor; }
+.promo__note {
+  margin: 0;
+  font-size: var(--t-small);
+  color: rgb(var(--ivory-rgb) / 0.6);
+  max-width: 52ch;
+}
+
+.promo__viewport {
+  position: relative;
+  padding-inline: clamp(1rem, 4vw, 3.4rem);
+}
+.promo__track {
+  display: flex;
+  gap: clamp(0.8rem, 1.6vw, 1.4rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-block: 0.4rem 0.9rem;
+  scrollbar-width: none;
+}
+.promo__track::-webkit-scrollbar { display: none; }
+
+.promo__item {
+  flex: 0 0 clamp(240px, 30vw, 380px);
+  margin: 0;
+  scroll-snap-align: start;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--deep-1);
+  box-shadow: 0 24px 50px -34px rgb(0 0 0 / 0.8);
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.5s ease;
+}
+.promo__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 34px 60px -34px rgb(0 0 0 / 0.9);
+}
+.promo__item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.promo__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgb(var(--ivory-rgb) / 0.28);
+  background: rgb(var(--ink-near-rgb) / 0.72);
+  color: var(--ivory);
+  font-size: 1.35rem;
+  line-height: 1;
+  backdrop-filter: blur(6px);
+  transition: border-color 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+}
+.promo__nav:hover { border-color: var(--gold-2); color: var(--gold-2); }
+.promo__nav[disabled] { opacity: 0.28; cursor: default; }
+.promo__nav--prev { left: clamp(0.2rem, 0.6vw, 0.6rem); }
+.promo__nav--next { right: clamp(0.2rem, 0.6vw, 0.6rem); }
+
+.promo__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1.1rem;
+}
+.promo__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgb(var(--ivory-rgb) / 0.28);
+  transition: background 0.25s ease, width 0.25s ease;
+}
+.promo__dot.is-active { background: var(--gold-2); width: 20px; }
+
+@media (max-width: 720px) {
+  .promo__item { flex-basis: 76vw; }
+  .promo__nav { display: none; }
+}
+
+/* ---------------------------------------------------------------- SNS */
+.sns {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  display: flex;
+  gap: 0.55rem;
+}
+.sns__link {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgb(var(--ivory-rgb) / 0.07);
+  border: 1px solid rgb(var(--ivory-rgb) / 0.12);
+  color: rgb(var(--ivory-rgb) / 0.82);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease,
+    border-color 0.25s ease;
+}
+.sns__link svg { width: 16px; height: 16px; }
+.sns__link:hover {
+  background: var(--gold-2);
+  border-color: var(--gold-2);
+  color: var(--deep-2);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------- 드래그 스크롤 */
+.promo__track { cursor: grab; }
+.promo__track.is-dragging {
+  scroll-snap-type: none;
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+.promo__item img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none; /* 드래그 중 이미지 선택/끌기 방지 */
+}
+
+/* ------------------------------------------------- 통계 밴드 리디자인 */
+.stats {
+  border-top: 0;
+  background: linear-gradient(180deg, rgb(var(--teal-rgb) / 0.07), rgb(var(--teal-rgb) / 0) 72%);
+}
+.stats__item {
+  position: relative;
+  padding-block: clamp(1.15rem, 2.1vw, 1.9rem);
+  transition: background 0.3s ease;
+}
+.stats__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: clamp(1rem, 2vw, 1.8rem);
+  width: 42px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), rgb(var(--teal-rgb) / 0));
+}
+.stats__item:hover { background: rgb(var(--teal-rgb) / 0.05); }
+.stats__val {
+  font-size: clamp(2.1rem, 3.4vw, 3rem);
+  font-weight: 300;
+}
+.stats__label {
+  margin-top: 0.55rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: rgb(var(--ink-rgb) / 0.5);
+}
+
+/* 통계 밴드: 높이 축소 + 밀도 개선 */
+.stats__item { padding-block: 1.05rem 1.25rem; }
+.stats__val { font-size: clamp(1.85rem, 3vw, 2.55rem); line-height: 0.95; }
+.stats__label { margin-top: 0.45rem; font-size: 0.64rem; letter-spacing: 0.18em; }
+.stats__item::before { top: 0.1rem; width: 34px; height: 1.5px; }
+
+/* 통계 밴드: 한 줄 스트립으로 압축 (공간 절약) */
+.stats__item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding-block: 0.95rem;
+}
+.stats__val { font-size: clamp(1.45rem, 2.1vw, 1.95rem); }
+.stats__label {
+  margin: 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+.stats__item::before { display: none; }
+
+/* .foot ul 의 display:grid 를 이기기 위한 특이도 보정 */
+.foot .sns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+.foot .sns li { margin: 0; }
+.foot .brand--footer { gap: 0.4rem; }
+
+/* ------------------------------------------------- v10 비율·가독성 보정 */
+
+/* 통계 스트립: 숫자·라벨 확대 */
+.stats__item { padding-block: 1.15rem 1.35rem; gap: 0.8rem; }
+.stats__val { font-size: clamp(2.1rem, 2.9vw, 2.7rem); }
+.stats__label { font-size: 0.78rem; letter-spacing: 0.12em; color: rgb(var(--ink-rgb) / 0.62); }
+
+/* 헤더 로고: 살짝 크게 + 대비 보정 */
+.brand__logo { height: 50px; filter: contrast(1.06) saturate(1.04); }
+
+/* SNS: 설명문 아래 배치 + 호버 시 아이콘이 사라지지 않도록 */
+.foot .sns { margin-top: 1.5rem; }
+.sns__link:hover {
+  background: rgb(var(--sky-rgb) / 0.18);
+  border-color: var(--gold-2);
+  color: var(--gold-2);
+  transform: translateY(-2px);
+}
+.sns__link:hover svg { color: var(--gold-2); }
+
+/* 통계 스트립: 라벨 줄바꿈으로 어긋나던 문제 수정 */
+.stats__item {
+  flex-wrap: nowrap;
+  align-items: baseline;
+  min-width: 0;
+}
+.stats__label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.1em;
+}
+@media (max-width: 900px) {
+  .stats__item { flex-wrap: wrap; }
+  .stats__label { white-space: normal; }
+}

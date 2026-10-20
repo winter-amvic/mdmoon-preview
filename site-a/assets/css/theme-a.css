@@ -1,0 +1,487 @@
+/* ==========================================================================
+   theme-a.css — A안 "임상적 럭셔리" (측정된 진료)
+   --------------------------------------------------------------------------
+   site-v4.css 뒤에 로드되어 토큰과 컴포넌트를 덮어쓴다.
+   수치 출처: design/moodboard-directions.md (designer 실측·확정)
+   원칙: 새 수치를 만들지 않는다. 금색은 3곳(eyebrow · 버튼 테두리 · 1px 규칙선)만.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- 토큰 */
+:root {
+  /* palette — A안 */
+  --ink: #101e23;
+  --ink-2: #4a5a5f;
+  --ink-3: #17323d;
+  --ivory: #f5f4ef;
+  --ivory-2: #e8eae4;
+  --sand: #d8d9d2;
+  --gold: #7a5c2a;
+  --gold-2: #c2a46b;
+  --gold-3: #c2a46b;
+
+  /* 신설 */
+  --surface: #fcfbf7;
+  --tint: #e8eae4;
+  --muted: #5f6d72;
+  --line: #d8d9d2;
+  --cool: #2e5a6b;
+  --accent: #7a5c2a;
+  --accent-2: #c2a46b;
+
+  /* 알파 채널용 rgb (86개 rgba 변형이 이 값들을 따라온다) */
+  --ink-rgb: 16 30 35;
+  --ivory-rgb: 245 244 239;
+  --gold-rgb: 122 92 42;
+  --gold2-rgb: 194 164 107;
+  --ink0-rgb: 16 30 35;
+  --ink-near-rgb: 16 30 35;
+  --teal-rgb: 46 90 107;
+  --sky-rgb: 46 90 107;
+  --white-rgb: 252 251 247;
+
+  /* 어두운 계열은 A안 스케일로 접는다 (깊이 10단 → 3단) */
+  --ink-0: #08171f;
+  --deep-1: #101e23;
+  --deep-2: #0c1a20;
+  --deep-3: #101e23;
+  --deep-4: #0c1a20;
+  --deep-5: #17323d;
+  --deep-6: #17323d;
+  --deep-7: #17323d;
+  --deep-8: #17323d;
+  --deep-9: #1d4356;
+  --deep-10: #17323d;
+  --teal: #2e5a6b;
+  --sky: #2e5a6b;
+  --sky-2: #e8eae4;
+  --brown: #101e23;
+  --black: #08171f;
+  --white: #fcfbf7;
+
+  /* type */
+  --serif: "Fraunces", "Noto Serif KR", "Noto Serif SC", Georgia, serif;
+  --sans: "Inter", "Noto Sans KR", "Noto Sans SC", system-ui, sans-serif;
+
+  /* scale (360 → 1440) */
+  --t-hero: clamp(2.5rem, 6.1vw, 5.5rem);
+  --t-h1: clamp(1.875rem, 3.9vw, 3.5rem);
+  --t-h2: clamp(1.625rem, 2.8vw, 2.5rem);
+  --t-h3: clamp(1.1875rem, 1.5vw, 1.375rem);
+  --t-lead: clamp(1.0625rem, 1.35vw, 1.25rem);
+  --t-body: clamp(1rem, 1.18vw, 1.0625rem);
+  --t-small: 0.875rem;
+  --t-micro: 0.6875rem;
+
+  /* line-height */
+  --lh-tight: 1.02;
+  --lh-head: 1.14;
+  --lh-body: 1.62;
+
+  /* space (4px 기반) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --gutter: clamp(1.25rem, 3.1vw, 2.5rem);
+  --maxw: 1240px;
+
+  /* 섹션 리듬 · 측정폭 */
+  --sec-y: clamp(4rem, 8vw, 8rem);
+  --sec-y-band: clamp(5rem, 10vw, 10rem);
+  --ch: 62ch;
+
+  /* 형태 */
+  --radius: 4px;
+  --radius-sm: 2px;
+  --sh-1: 0 1px 2px rgb(var(--ink-rgb) / 0.05);
+  --sh-2: 0 18px 40px -30px rgb(var(--ink-rgb) / 0.22);
+  --sh-3: 0 44px 80px -52px rgb(var(--ink-rgb) / 0.30);
+  --shadow: var(--sh-2);
+
+  /* 언어 배율 (한 곳에서 관리) */
+  --f-display: 1;
+  --f-body: 1;
+}
+html[lang="ko"] { --f-display: 0.96; --f-body: 1; }
+
+/* ------------------------------------------------ 언어 배율 통일 (v4 대체) */
+html[lang] .hero h1,
+html[lang] .section__head h2 {
+  font-size: calc(var(--t-hero) * var(--f-display));
+}
+html[lang] .section__head h2 { font-size: calc(var(--t-h2) * var(--f-display)); }
+body { font-size: calc(var(--t-body) * var(--f-body)); line-height: var(--lh-body); }
+
+/* ---------------------------------------------------- 히어로: 종이로 바꾼다 */
+.hero {
+  background:
+    radial-gradient(120% 90% at 74% 6%, #fbfaf5 0%, var(--ivory) 46%, #efeee7 100%);
+  color: var(--ink);
+}
+.hero h1 {
+  color: var(--ink);
+  font-size: calc(var(--t-hero) * var(--f-display));
+  letter-spacing: -0.032em;
+  line-height: var(--lh-tight);
+}
+.hero h1 em { color: var(--accent); font-style: italic; }
+.hero .eyebrow { color: var(--accent); }
+.hero .eyebrow::before { background: var(--accent); }
+.hero__lede,
+.hero p { color: var(--ink-2); }
+/* 장식 따옴표 SVG 제거 → 1px 규칙선 */
+.hero__q { display: none; }
+.hero__facts { color: var(--ink-2); border-top-color: rgb(var(--ink-rgb) / 0.14); }
+.hero__facts strong { color: var(--ink); }
+/* hero 하단 3항목: 아이보리 계열이 밝은 판면에서 사라진다 → 잉크로 */
+.hero__fact dt { color: var(--muted); }
+.hero__fact dd { color: var(--ink); }
+.hero__scroll,
+.scroll-cue { color: var(--muted); }
+.scroll-cue::after { background: linear-gradient(180deg, rgb(var(--ink-rgb) / 0.35), transparent); }
+
+/* 3D 캔버스는 밝은 판면 위에서 은은하게 */
+.hero canvas { opacity: 0.45; mix-blend-mode: multiply; }
+/* 기존 어두운 스크림 제거 — 밝은 히어로에서는 글자를 죽인다 */
+.hero::after {
+  background: radial-gradient(120% 100% at 78% 8%, rgb(var(--ivory-rgb) / 0) 40%, rgb(var(--ink-rgb) / 0.05) 100%);
+}
+#hero-canvas { opacity: 0.3; mix-blend-mode: multiply; }
+.hero__rule { background: linear-gradient(90deg, rgb(var(--cool-rgb, 46 90 107) / 0.7), rgb(var(--cool-rgb, 46 90 107) / 0.04)); }
+
+/* -------------------------------------------------------------- 섹션 리듬 */
+.section { padding-block: var(--sec-y); }
+.section--tight { padding-block: calc(var(--sec-y) * 0.55); }
+.section--ink { background: var(--ink); padding-block: var(--sec-y-band); }
+.section--paper { background: var(--tint); }
+
+/* ---------------------------------------------------------- 타이포 위계 */
+.section__head h2 { font-size: calc(var(--t-h2) * var(--f-display)); line-height: var(--lh-head); }
+.section__head p { max-width: var(--ch); }
+.long-copy p,
+.section__head p,
+.split p { max-width: var(--ch); }
+.eyebrow {
+  color: var(--accent);
+  font-size: var(--t-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.eyebrow::before { background: var(--accent); }
+
+/* ------------------------------------------------ 금색 3곳 제한 (56곳 축소) */
+/* 1) eyebrow — 위에서 처리 (--accent) */
+
+/* 2) 버튼: 주 CTA는 잉크 솔리드, 아웃라인 버튼만 금색 테두리 */
+.btn--gold {
+  background: var(--ink);
+  color: var(--ivory);
+  border: 1px solid var(--ink);
+  box-shadow: var(--sh-1);
+}
+.btn--gold:hover { background: var(--ink-3); border-color: var(--ink-3); color: var(--ivory); }
+.btn--ghost { border-color: var(--line); color: var(--ink); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* 3) 1px 규칙선: 내비 현재 항목 밑줄만 금색 */
+.nav__link::after { background: var(--accent); }
+.nav__link:hover,
+.nav__link[aria-current="page"] { color: var(--ink); }
+
+/* 나머지 금색 → 쿨/잉크 */
+.topbar__tel, .topbar__tel:hover { color: var(--ivory); }
+.brand__sub, .brand__tagline, .foot .brand__sub { color: var(--accent-2); }
+.hero h1 em { color: var(--accent); }
+.scroll-cue::after { background: linear-gradient(180deg, rgb(var(--ink-rgb) / 0.4), transparent); }
+.split__list li::before { background: var(--cool); }
+.svc::before { background: linear-gradient(90deg, var(--cool), var(--ink)); }
+.svc__num, .svc__list li::before, .svc__arrow { color: var(--cool); }
+.doc__role, .gal__count, .stats__val sup { color: var(--muted); }
+.doc__photo--monogram span { color: var(--accent-2); }
+.doc__photo--monogram::after { border-color: rgb(var(--ivory-rgb) / 0.28); }
+.lightbox__nav:hover, .lightbox__close:hover,
+.video__play:hover .video__btn { border-color: var(--cool); color: var(--cool); }
+.foot h3 { color: var(--ivory); }
+.foot a:hover { color: var(--accent-2); }
+.foot ul .ico, .office__meta .ico, .office__mapcue { color: var(--cool); }
+.office__meta a { border-bottom-color: var(--line); }
+.office__meta a:hover { color: var(--cool); }
+.office__pin { background: var(--cool); }
+.office__maplink:hover { color: var(--cool); border-color: var(--cool); }
+.testi__mark, .testi__author { color: var(--muted); }
+.long-copy p:first-of-type::first-letter { color: var(--ink); }
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--cool);
+  box-shadow: 0 0 0 3px rgb(var(--teal-rgb) / 0.16);
+}
+.promo__head .eyebrow { color: var(--accent-2); }
+.promo__nav:hover, .promo__dot.is-active, .sns__link:hover { border-color: var(--accent-2); color: var(--accent-2); }
+.promo__dot.is-active { background: var(--accent-2); }
+.sns__link:hover { background: transparent; }
+.stats__item::before { background: linear-gradient(90deg, var(--cool), rgb(var(--teal-rgb) / 0)); }
+/* 선택 영역은 금색이 아니라 잉크 위 아이보리 */
+::selection { background: var(--ink); color: var(--ivory); }
+
+/* 다크 밴드 위 본문: --muted 는 밝은 면 전용이라 어둡게 죽는다 → 아이보리 계열 */
+.section--ink p,
+.section--ink .section__head p,
+.section--ink .doc__bio,
+.promo p,
+.promo__note,
+.foot p { color: rgb(var(--ivory-rgb) / 0.72); }
+
+/* 다크 밴드 위 CTA: 잉크 버튼은 배경에 묻힌다 → 아이보리 솔리드 */
+.cta { background: var(--ink); }
+.cta .btn--gold {
+  background: var(--ivory);
+  color: var(--ink);
+  border-color: var(--ivory);
+}
+.cta .btn--gold:hover { background: var(--accent-2); border-color: var(--accent-2); color: var(--ink); }
+.cta .btn--ghost { border-color: rgb(var(--ivory-rgb) / 0.30); color: var(--ivory); }
+.cta .btn--ghost:hover { border-color: var(--accent-2); color: var(--accent-2); }
+.cta .eyebrow { color: var(--accent-2); }
+.cta h2 { color: var(--ivory); }
+
+/* --------------------------------------------------- 형태·표면 마감 */
+.card, .svc, .testi, .field, .promo__item, .doc__card {
+  border-radius: var(--radius);
+  box-shadow: var(--sh-1);
+}
+.svc, .testi, .doc__card { box-shadow: var(--sh-2); }
+.lightbox__figure, .gal__item, .video__wrap { border-radius: var(--radius-sm); }
+.btn { border-radius: var(--radius-sm); }
+img { border-radius: var(--radius-sm); }
+
+/* ==========================================================================
+   모바일 — 현재 사이트의 실제 결함 수정 (2026-10-20 실측)
+   `.nav__cta` 가 1080px 이하에서도 표시되어 `.menu-btn` 을 화면 밖으로 밀어낸다.
+   실측: 390px 뷰포트에서 scrollWidth 590(현재) → 메뉴 버튼 right=590(보이지 않음).
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .nav__cta { display: none; }
+  .menu-btn { flex: none; }
+  .masthead__inner { gap: var(--s-3); }
+}
+
+@media (max-width: 720px) {
+  .topbar__note { font-size: 0.74rem; }
+  .topbar__inner { gap: var(--s-2); }
+  .hero { min-height: 74vh; }
+  .hero h1 { letter-spacing: -0.02em; }
+  .hero__facts { gap: 0.9rem 1.4rem; }
+  .section { padding-block: calc(var(--sec-y) * 0.8); }
+  .section--ink { padding-block: calc(var(--sec-y-band) * 0.7); }
+
+  /* 헤더가 390px 에서 15px 넘쳤다(실측 sw=405) → 간격·로고·언어 토글 축소 */
+  .masthead__inner { gap: 0.5rem; min-height: 64px; }
+  .brand { gap: 0.4rem; }
+  .brand__logo { height: 38px; }
+  .lang { padding: 0.12rem; }
+  .lang__btn { padding: 0.26rem 0.42rem; font-size: 0.68rem; }
+}
+
+/* ==========================================================================
+   spec-정합 보정 — design/theme-a-spec.md 3장(gold 교체 표) 그대로 적용
+   위쪽 "금색 3곳 제한" 블록은 1차 구현이고, 이 블록이 선택자별 최종값을 갖는다.
+   (같은 특이도에서 파일 뒤쪽이 이기므로 여기 값이 실제 적용값)
+   ========================================================================== */
+:root {
+  --cool-lt: #8fb6c4;   /* 다크 밴드용 cool (다크 위 7.84:1) — A팔레트에 없던 신설값 */
+  --on-ink: #f5f4ef;
+  --on-ink-72: rgb(var(--ivory-rgb) / 0.72);
+  --on-ink-16: rgb(var(--ivory-rgb) / 0.16);
+  /* 전환용 별칭 (spec 2장) */
+  --gold: var(--accent);
+  --gold-2: var(--accent-2);
+  --gold-3: var(--cool-lt);
+}
+
+::selection { background: var(--tint); color: var(--ink); }
+.topbar__tel { color: var(--cool-lt); }
+.topbar__tel:hover { color: var(--on-ink); }
+.brand__sub { color: var(--muted); }
+.hero h1 em { color: var(--cool); }
+.nav__link::after { background: var(--ink); }
+.nav__link:hover, .nav__link[aria-current="page"] { color: var(--ink); }
+.split__list li::before { background: var(--cool); }
+.svc::before { background: var(--cool); height: 1px; }
+.svc__num, .svc__list li::before, .svc__arrow { color: var(--cool); }
+.doc__photo--monogram span { color: var(--cool-lt); }
+.doc__role { color: var(--muted); }
+.doc__photo--monogram::after { border-color: rgb(var(--ivory-rgb) / 0.28); }
+.lightbox__nav:hover, .lightbox__close:hover { border-color: var(--cool-lt); color: var(--cool-lt); }
+.video__play:hover .video__btn { border-color: var(--on-ink); }
+.foot h3 { color: var(--cool-lt); }
+.foot a:hover { color: var(--on-ink); }
+.foot .brand__sub { color: var(--cool-lt); }
+.foot ul .ico { color: var(--cool-lt); }
+.brand__tagline { color: var(--muted); }
+.office__meta .ico { color: var(--cool); }
+.topbar__note:hover { color: var(--on-ink); }
+.stats__val sup, .gal__count { color: var(--cool); }
+.testi__mark, .testi__author { color: var(--cool-lt); }
+.long-copy p:first-of-type::first-letter { color: var(--cool); }
+.office__meta a:hover { color: var(--ink); }
+.office__pin { background: var(--cool); }
+.office__mapcue { color: var(--cool); }
+.office__maplink:hover { color: var(--ink); border-color: var(--ink); }
+.form__sent { border-left: 2px solid var(--cool); }
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--cool);
+  box-shadow: 0 0 0 3px rgb(var(--teal-rgb) / 0.16);
+}
+.promo__head .eyebrow { color: inherit; }
+.promo__nav:hover { border-color: var(--ink); color: var(--ink); }
+.promo__dot.is-active { background: var(--ink); }
+.sns__link:hover { background: rgb(46 90 107 / 0.10); border-color: var(--ink); color: var(--ink); }
+.sns__link:hover svg { color: var(--ink); }
+.stats__item::before { background: linear-gradient(90deg, var(--cool), rgb(var(--teal-rgb) / 0)); }
+
+/* ==========================================================================
+   spec 4·5장 — 남은 지점 (designer 2차 지적 반영)
+   ========================================================================== */
+
+/* (1) 히어로 반전의 마지막 조각: 다크 스크림 → 24px 헤어라인 격자 */
+.hero::after {
+  background-image:
+    linear-gradient(to right, rgb(var(--ink-rgb) / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--ink-rgb) / 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0;
+}
+
+/* (2) 금색 리터럴 4곳 — var() 를 안 거치던 자리 */
+.scroll-cue::after { background: linear-gradient(180deg, rgb(var(--ink-rgb) / 0.35), transparent); }
+.doc__photo--monogram::after { border-color: var(--on-ink-16); }
+.office__meta a { border-bottom-color: var(--line); }
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--cool);
+  box-shadow: 0 0 0 3px rgb(var(--teal-rgb) / 0.18);
+}
+
+/* (3) 원장 사진: 현재 원형(1/1) → A1 샷리스트 4:5 */
+.doc__photo,
+.doc__photo--monogram {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-sm);
+  max-width: 340px;
+}
+.doc__photo img { object-position: 50% 32%; }
+.doc__photo--monogram::after { border-radius: var(--radius-sm); }
+
+/* (4) 카드 그림자 3곳만 · promo 카드는 그림자 제거 · 형태 규칙 */
+.svc, .testi__item, .split__media { box-shadow: var(--sh-2); }
+.card, .testi, .doc__card, .field { box-shadow: var(--sh-1); }
+.promo__item { box-shadow: none; border: 1px solid rgb(var(--ivory-rgb) / 0.12); }
+.promo__item:hover { box-shadow: var(--sh-2); }
+.svc, .testi__item, .field, .promo__item { border-radius: var(--radius); }
+.split__media img, .gal__item img { border-radius: var(--radius-sm); }
+
+/* (5) sns:hover 중복 정리 — v4 131-135 는 죽은 코드였다 */
+.sns__link:hover {
+  background: rgb(46 90 107 / 0.10);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.sns__link:hover svg { color: var(--ink); }
+
+/* ==========================================================================
+   designer 3차 감사 반영 (2026-10-20) — 4건
+   ========================================================================== */
+
+/* (1) ZH 배율이 실제로는 죽어 있었다: i18n 이 lang="zh-CN" 을 넣는데
+       선택자가 html[lang="zh"] 라 정확히 일치하지 않았다. :lang() 으로 교체. */
+:lang(zh) { --f-display: 0.95; --f-body: 0.98; }
+:lang(ko) { --f-display: 0.96; --f-body: 1; }
+html[lang] .hero h1 { font-size: calc(var(--t-hero) * var(--f-display)); }
+html[lang] .section__head h2 { font-size: calc(var(--t-h2) * var(--f-display)); }
+body { font-size: calc(var(--t-body) * var(--f-body)); }
+
+/* ZH 세리프: Noto Serif KR 이 먼저 잡으면 SC 가 영영 로드되지 않는다 → SC 우선 */
+:lang(zh) { --serif: "Fraunces", "Noto Serif SC", "Noto Serif KR", Georgia, serif; }
+:lang(ko) { --serif: "Fraunces", "Noto Serif KR", "Noto Serif SC", Georgia, serif; }
+
+/* (2) ghost 버튼 hover: 금색(accent-2) 대신 accent 테두리 + 잉크 글자 */
+.btn--ghost:hover { border-color: var(--accent); color: var(--ink); }
+
+/* (3) 후기 섹션: 다크 밴드 3개 → 2개로 (원장·CTA만 어둡게) */
+.section--ink:has(.testi) { background: var(--ivory); color: var(--ink); }
+.section--ink:has(.testi) h2 { color: var(--ink); }
+.section--ink:has(.testi) .eyebrow { color: var(--accent); }
+.section--ink .testi__item {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow: var(--sh-2);
+}
+.section--ink .testi__body { color: var(--ink-2); }
+.section--ink .testi__mark,
+.section--ink .testi__author { color: var(--cool); }
+
+/* (4) 원장 사진 그림자: 구 v3 값(α .6) → --sh-3 (α .30) */
+.doc__photo { box-shadow: var(--sh-3); }
+
+/* (5) svc__arrow 는 이미 --cool 로 확인됨(중복 방지용 고정) */
+.svc .svc__arrow { color: var(--cool); }
+
+/* (6) 보조 버튼 기본 테두리: --line(porcelain 위 1.29:1)은 경계가 안 보인다.
+       WCAG 2.1 비텍스트 3:1 미달 → spec R2(버튼 테두리) 자리로 되돌린다. */
+.btn--ghost { border-color: var(--accent); }
+
+/* (7) 모바일 드로어 안의 예약 CTA — 헤더 CTA 숨김의 대체 경로 */
+.drawer__cta {
+  display: none;
+  margin-top: var(--s-4);
+  justify-content: center;
+}
+@media (max-width: 1080px) {
+  .drawer__cta { display: inline-flex; }
+}
+
+/* (8) KO 내부 페이지 h1 이 3줄로 끊겨 "전문 / 분야" 가 갈라졌다 → 측정폭 확보 */
+:lang(ko) .hero__head, :lang(zh) .hero__head { width: 100%; max-width: min(100%, 980px); }
+:lang(ko) .hero h1, :lang(zh) .hero h1 { width: 100%; max-width: 100%; }
+
+/* ==========================================================================
+   designer 최종 지시 — S4(활자 히어로) 정련 6개 (2026-10-20)
+   ========================================================================== */
+.hero { min-height: min(84vh, 780px); }
+.hero::after { background-size: 32px 32px; }      /* 눈금처럼 보이지 않게 */
+.hero__inner { padding-block: clamp(3.4rem, 6vw, 6.2rem); }
+.hero h1 { letter-spacing: -0.03em; }
+.hero__rule { width: 88px; flex: none; }
+.hero__rule-row { max-width: 360px; }
+
+/* designer 최종 미세조정 — 격자 0.03 + facts/cue 간격 (S4) */
+.hero::after { background-size: 32px 32px !important; }
+.hero::after { background-image:
+  linear-gradient(to right, rgb(var(--ink-rgb) / 0.03) 1px, transparent 1px),
+  linear-gradient(to bottom, rgb(var(--ink-rgb) / 0.03) 1px, transparent 1px); }
+.hero__facts { margin-top: clamp(1.8rem, 3.4vw, 3rem); }
+.scroll-cue { bottom: 0.45rem; }
+
+/* en 요청 — 인쇄체(디스플레이) 크기·자간을 v2 값으로 (102.4px / -0.0185em) */
+.hero h1 { font-size: calc(var(--t-hero) * 1.1636 * var(--f-display)); letter-spacing: -0.0185em; }
+html[lang] .hero h1 { font-size: calc(var(--t-hero) * 1.1636 * var(--f-display)); }
+.section__head h2 { font-size: calc(var(--t-h2) * 1.04 * var(--f-display)); letter-spacing: -0.018em; }
+
+/* en 요청 — 한글 인쇄체를 v2 히어로와 맞춘다: weight 350, 자간 -0.005em */
+:lang(ko) .hero h1 { font-weight: 350; letter-spacing: -0.005em; }
+:lang(ko) .section__head h2 { font-weight: 350; letter-spacing: -0.004em; }
+:lang(zh) .hero h1 { font-weight: 350; letter-spacing: -0.012em; }
+
+/* en 요청 — 히어로 제목을 v2 실제 크기로: EN 86.0px @1440 (--t-hero × 0.84)
+   KO 73.7px(×0.72) / ZH 80.0px(×0.78 상당) — v2가 언어별로 쓰던 비율 그대로 */
+:root { --f-hero: 1; }
+:lang(en) { --f-hero: 1; }
+:lang(ko) { --f-hero: 0.857; }
+:lang(zh) { --f-hero: 0.93; }
+html[lang] .hero h1 { font-size: calc(var(--t-hero) * 0.9775 * var(--f-hero)); letter-spacing: -0.022em; }
+html[lang] .section__head h2 { font-size: calc(var(--t-h2) * var(--f-display)); }
+
+:lang(ko) .hero h1 { letter-spacing: -0.005em; }
+:lang(zh) .hero h1 { letter-spacing: -0.012em; }
