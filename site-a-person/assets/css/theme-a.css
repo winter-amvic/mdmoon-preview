@@ -530,3 +530,20 @@ html[lang] .section__head h2 { font-size: calc(var(--t-h2) * var(--f-display)); 
 
 :lang(ko) .hero h1 { letter-spacing: -0.005em; }
 :lang(zh) .hero h1 { letter-spacing: -0.012em; }
+
+/* 모바일 인물 히어로 최종 — vh 대신 고정 높이(iOS 주소창 변화 대응), 오른쪽 정렬 130% */
+@media (max-width: 1080px) {
+  .hero { min-height: auto !important; padding-bottom: 0 !important; }
+  .hero::before {
+    inset: 0 0 auto 0 !important;
+    width: 100% !important;
+    height: 300px !important;
+    background-size: auto 130% !important;
+    background-position: 100% 10% !important;
+    background-repeat: no-repeat !important;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 64%, rgba(0,0,0,0) 100%) !important;
+    mask-image: linear-gradient(180deg, #000 0%, #000 64%, rgba(0,0,0,0) 100%) !important;
+    z-index: 0;
+  }
+  .hero__inner { padding-top: 320px !important; padding-bottom: 2.4rem !important; }
+}
