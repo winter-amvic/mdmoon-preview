@@ -491,7 +491,18 @@ body { font-size: calc(var(--t-body) * var(--f-body)); }
 .hero__lede { max-width: 480px; }
 .hero__facts { max-width: 540px; }
 @media (max-width: 1080px) {
-  .hero::before { display: none; }      /* 모바일: 인물 없이 활자 히어로 */
+  /* 모바일: 인물을 하단 밴드로 내린다 (텍스트 위, 사진 아래 · 겹침 없음) */
+  .hero { min-height: auto; padding-bottom: 0; }
+  .hero::before {
+    position: absolute; inset: 0 0 auto 0; width: 100%; height: 34vh; min-height: 230px;
+    background-size: cover; background-position: 50% 12%;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 62%, rgba(0,0,0,0) 100%);
+    z-index: 0;
+  }
+  .hero__inner { padding-top: calc(34vh + 1.2rem); padding-bottom: 2.4rem; }
+  .hero__facts { margin-bottom: 0; }
+  .scroll-cue { display: none; }
   #hero-canvas { display: block; }
   .hero::after { background-image: linear-gradient(to right, rgb(var(--ink-rgb) / 0.04) 1px, transparent 1px),
                               linear-gradient(to bottom, rgb(var(--ink-rgb) / 0.04) 1px, transparent 1px);
