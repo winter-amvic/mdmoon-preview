@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-page="gallery">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery — Taewon Moon, MD</title>
+<meta name="description" content="Inside the clinic: treatment rooms, technology and the team behind the care.">
+<meta name="theme-color" content="#0a1a24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site-v3.css">
+<link rel="stylesheet" href="assets/css/site-v4.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-page="gallery">
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="lang-status" class="sr-only" role="status" aria-live="polite"></div>
+<div class="topbar">
+  <div class="topbar__inner container">
+    <a class="topbar__note" href="contact.html#locations">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+      <span data-i18n="top.note">Two offices — Flushing, NY &amp; Englewood Cliffs, NJ</span>
+      <span class="topbar__go" aria-hidden="true">→</span>
+    </a>
+    <a class="topbar__tel" href="tel:+12015030066"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16.9v3a2 2 0 0 1-2.2 2 19.6 19.6 0 0 1-8.5-3 19.3 19.3 0 0 1-6-6 A19.6 19.6 0 0 1 1.3 4.3 2 2 0 0 1 3.3 2.1h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L7.2 10a15.9 15.9 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.6 2z"/></svg>1-201-503-0066</a>
+  </div>
+</div>
+<header class="masthead">
+  <div class="masthead__inner container">
+    <a class="brand " href="index.html" aria-label="Taewon Moon, MD — Plastic Surgery &amp; Laser Clinic">
+        <img class="brand__logo" src="assets/media/logo_header_hd_deep.png"
+             alt="Taewon Moon, MD — Plastic Surgery &amp; Laser Clinic" width="700" height="204">
+      </a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav__link" href="index.html" data-i18n="nav.home">Home</a>
+      <a class="nav__link" href="services.html" data-i18n="nav.services">Services</a>
+      <a class="nav__link" href="doctors.html" data-i18n="nav.doctors">Doctors</a>
+      <a class="nav__link" href="gallery.html" data-i18n="nav.gallery" aria-current="page">Gallery</a>
+      <a class="nav__link" href="contact.html" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" data-i18n-label="lang.aria" aria-label="Language">
+      <button class="lang__btn" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang__btn" data-lang="ko" aria-pressed="false">한국어</button>
+      <button class="lang__btn" data-lang="zh" aria-pressed="false">中文</button>
+    </div>
+    <a class="nav__cta" href="contact.html" data-i18n="nav.cta">Free consultation</a>
+    <button class="menu-btn" aria-label="Open menu" data-i18n-label="menu.aria"><span></span></button>
+  </div>
+</header>
+
+<div class="drawer" aria-hidden="false">
+  <div class="drawer__top">
+    <a class="brand " href="index.html" aria-label="Taewon Moon, MD — Plastic Surgery &amp; Laser Clinic">
+        <img class="brand__logo" src="assets/media/logo_header_hd_deep.png"
+             alt="Taewon Moon, MD — Plastic Surgery &amp; Laser Clinic" width="700" height="204">
+      </a>
+    <button class="menu-btn drawer__close" aria-label="Close" data-i18n-label="close.aria"><span></span></button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="services.html" data-i18n="nav.services">Services</a>
+    <a href="doctors.html" data-i18n="nav.doctors">Doctors</a>
+    <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button class="lang__btn" data-lang="en" aria-pressed="true">EN</button>
+    <button class="lang__btn" data-lang="ko" aria-pressed="false">한국어</button>
+    <button class="lang__btn" data-lang="zh" aria-pressed="false">中文</button>
+  </div>
+</div>
+<section class="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="container hero__inner">
+    <div class="hero__head">
+      <svg class="hero__q hero__q--open" viewBox="0 0 48 34" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 20.5C0 9.6 6.4 2.2 17.4 0l2.3 5.6C12.1 8 8.2 12.3 7.7 17.3H15v16.2H0V20.5z"/><path fill="currentColor" d="M27.5 20.5C27.5 9.6 33.9 2.2 44.9 0l2.3 5.6c-7.6 2.4-11.5 6.7-12 11.7h7.3v16.2H27.5V20.5z"/></svg>
+      <span class="eyebrow" data-i18n="gal.eyebrow">Gallery</span>
+      <h1 data-i18n="gal.title">The clinic, in detail.</h1>
+      <div class="hero__rule-row" aria-hidden="true">
+        <span class="hero__rule"></span>
+      </div>
+      <p class="hero__lede" data-i18n="gal.body">Treatment rooms, technology and the team — the everyday of the practice.</p>
+      <svg class="hero__q hero__q--close" viewBox="0 0 48 34" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 20.5C0 9.6 6.4 2.2 17.4 0l2.3 5.6C12.1 8 8.2 12.3 7.7 17.3H15v16.2H0V20.5z"/><path fill="currentColor" d="M27.5 20.5C27.5 9.6 33.9 2.2 44.9 0l2.3 5.6c-7.6 2.4-11.5 6.7-12 11.7h7.3v16.2H27.5V20.5z"/></svg>
+    </div>
+      <div class="hero__actions reveal">
+        <a class="btn btn--gold" href="contact.html"><span data-i18n="hero.cta1">Book a free consultation</span><span class="btn__arrow">→</span></a>
+        <a class="btn btn--ghost" href="services.html"><span data-i18n="hero.cta2">Explore services</span></a>
+      </div>
+
+  </div>
+  <span class="scroll-cue" aria-hidden="true">Scroll</span>
+</section>
+<section class="section section--paper">
+  <div class="container">
+    
+    <h3 class="gal__title" data-i18n="gal.space">The spaces<span class="gal__count">15</span></h3>
+    <div class="gal">
+      <figure class="gal__item"><img src="assets/media/gallery_1.jpg" alt="Taewon Moon, MD — gallery 1" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/gallery_2.jpg" alt="Taewon Moon, MD — gallery 2" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/gallery_4.jpg" alt="Taewon Moon, MD — gallery 4" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/gallery_5.jpg" alt="Taewon Moon, MD — gallery 5" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/gallery_6.jpg" alt="Taewon Moon, MD — gallery 6" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/moon-gallery_03.jpg" alt="Taewon Moon, MD — moon-gallery 03" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/moon-gallery_ny.jpg" alt="Taewon Moon, MD — moon-gallery ny" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/moon-gallery_ny_01.jpg" alt="Taewon Moon, MD — moon-gallery ny 01" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/moon-gallery_ny_02.jpg" alt="Taewon Moon, MD — moon-gallery ny 02" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/moon-gallery_ny_03.jpg" alt="Taewon Moon, MD — moon-gallery ny 03" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/moon-gallery_ny_04.jpg" alt="Taewon Moon, MD — moon-gallery ny 04" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/moon-gallery_ny_2.jpg" alt="Taewon Moon, MD — moon-gallery ny 2" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/1C3A4704_mdmoon_interior.jpg" alt="Taewon Moon, MD — 1C3A4704 mdmoon interior" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/1C3A5473-mdmoon_interior2.jpg" alt="Taewon Moon, MD — 1C3A5473-mdmoon interior2" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/service_ent.jpg" alt="Taewon Moon, MD — service ent" loading="lazy" decoding="async"></figure>
+    </div>
+    <h3 class="gal__title" data-i18n="gal.treat">In treatment<span class="gal__count">11</span></h3>
+    <div class="gal">
+      <figure class="gal__item"><img src="assets/media/service_laser_clinic.jpg" alt="Taewon Moon, MD — service laser clinic" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/service_laser.jpg" alt="Taewon Moon, MD — service laser" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/service_medispa.jpg" alt="Taewon Moon, MD — service medispa" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/service_plastic_surgery.jpg" alt="Taewon Moon, MD — service plastic surgery" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/service_lipo.jpg" alt="Taewon Moon, MD — service lipo" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/Taewon-Moon-7.jpg" alt="Taewon Moon, MD — Taewon-Moon-7" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/Untitled-2-copy.jpg" alt="Taewon Moon, MD — Untitled-2-copy" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/95056090_738317620040362_2660784576794328023_n.jpg" alt="Taewon Moon, MD — 95056090 738317620040362 2660784576794328023 n" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/96276139_540082430267157_557278112936271248_n.jpg" alt="Taewon Moon, MD — 96276139 540082430267157 557278112936271248 n" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/mdmoon_home_image_01.jpg" alt="Taewon Moon, MD — mdmoon home image 01" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/mdmoon_125360620.jpg" alt="Taewon Moon, MD — mdmoon 125360620" loading="lazy" decoding="async"></figure>
+    </div>
+    <h3 class="gal__title" data-i18n="gal.team">The team<span class="gal__count">4</span></h3>
+    <div class="gal">
+      <figure class="gal__item"><img src="assets/media/team_dr_moon_md_cc.jpg" alt="Taewon Moon, MD — team dr moon md cc" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/team_dr_maman_cc.jpg" alt="Taewon Moon, MD — team dr maman cc" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/slider-doc.jpg" alt="Taewon Moon, MD — slider-doc" loading="lazy" decoding="async"></figure>
+      <figure class="gal__item"><img src="assets/media/BLOG1.jpg" alt="Taewon Moon, MD — BLOG1" loading="lazy" decoding="async"></figure>
+    </div>
+
+    <p style="margin-top:2rem;font-size:.8rem;color:rgba(10,26,36,.5)" data-i18n="gal.note">Photographs from mdmoon.com. Individual results vary.</p>
+  </div>
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <img src="" alt="">
+    <button class="lightbox__close" aria-label="Close">✕</button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous">‹</button>
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Next">›</button>
+  </div>
+</section>
+<section class="section section--paper">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow" data-i18n="vid.eyebrow">Clinic film</span>
+      <h2 data-i18n="vid.title">A first look inside.</h2>
+      <p data-i18n="vid.body">See the offices and the approach before your first visit.</p>
+    </div>
+    <div class="video reveal">
+      <video class="video__player" controls preload="metadata" playsinline
+             poster="assets/media/1C3A4704_mdmoon_interior.jpg">
+        <source src="assets/video/clinic.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+<section class="cta">
+  <div class="container cta__inner">
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="con.eyebrow">Contact</span>
+      <h2 data-i18n="cta.title">Start with a conversation.</h2>
+      <p data-i18n="cta.body">No obligation. We will answer honestly, in your language.</p>
+    </div>
+    <div class="cta__actions reveal">
+      <a class="btn btn--gold" href="tel:+12015030066"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16.9v3a2 2 0 0 1-2.2 2 19.6 19.6 0 0 1-8.5-3 19.3 19.3 0 0 1-6-6 A19.6 19.6 0 0 1 1.3 4.3 2 2 0 0 1 3.3 2.1h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L7.2 10a15.9 15.9 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.6 2z"/></svg><span data-i18n="cta.btn1">Call 1-201-503-0066</span></a>
+      <a class="btn btn--ghost" href="mailto:moonmdny@gmail.com"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="4.6" width="19.2" height="14.8" rx="2.4"/><path d="m3.4 6.4 8.6 6.2 8.6-6.2"/></svg><span data-i18n="cta.btn2">Send an email</span><span class="btn__arrow">→</span></a>
+    </div>
+  </div>
+</section>
+<footer class="foot">
+  <div class="container">
+    <div class="foot__grid">
+      <div>
+        <a class="brand brand--footer " href="index.html" aria-label="Taewon Moon, MD — Plastic Surgery &amp; Laser Clinic">
+        <img class="brand__logo" src="assets/media/logo_footer_white.png"
+             alt="Taewon Moon, MD — Plastic Surgery &amp; Laser Clinic" width="200" height="94">
+      </a>
+        <p style="margin:1rem 0 0;max-width:34ch;" data-i18n="foot.about">Plastic surgery, laser care and ENT medicine in Flushing, NY and Englewood Cliffs, NJ.</p>
+                <ul class="sns">
+          <li><a class="sns__link" href="https://www.facebook.com/Taewon-Moon-MD-370713263691360" aria-label="Facebook" data-sns="facebook" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-2.9h-2.8V9.3c0-.8.2-1.4 1.4-1.4h1.5V5.3c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.4-3.7 3.8v2.1H8v2.9h2.5v7h3z"/></svg></a></li>
+          <li><a class="sns__link" href="https://www.instagram.com/taewonmoonmd/" aria-label="Instagram" data-sns="instagram" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.1" cy="6.9" r="1.2"/></svg></a></li>
+          <li><a class="sns__link" href="#" aria-label="TikTok" data-sns="tiktok" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.6 3h2.3c.2 1.9 1.3 3.4 3.4 3.7v2.4c-1.3.1-2.5-.3-3.5-1v6.2c0 3.3-2.2 5.3-5 5.3-2.9 0-4.9-2-4.9-4.7 0-2.9 2.3-4.9 5.2-4.6v2.6c-1.5-.4-2.6.4-2.6 1.9 0 1.3.9 2.2 2.2 2.2 1.4 0 2.3-.9 2.3-2.5V3z"/></svg></a></li>
+          <li><a class="sns__link" href="https://www.youtube.com/channel/UC7vuTTIev2r2UAyG01yPT9w" aria-label="YouTube" data-sns="youtube" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2C2 8.9 2 12 2 12s0 3.1.4 4.8a2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2C22 15.1 22 12 22 12s0-3.1-.4-4.8zM10 15.3V8.7l5.3 3.3L10 15.3z"/></svg></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="foot.explore">Explore</h3>
+        <ul>
+        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="doctors.html" data-i18n="nav.doctors">Doctors</a></li>
+        <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="foot.contact">Contact</h3>
+        <ul>
+          <li><a href="tel:+12015030066"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16.9v3a2 2 0 0 1-2.2 2 19.6 19.6 0 0 1-8.5-3 19.3 19.3 0 0 1-6-6 A19.6 19.6 0 0 1 1.3 4.3 2 2 0 0 1 3.3 2.1h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L7.2 10a15.9 15.9 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.6 2z"/></svg>1-201-503-0066</a></li>
+          <li><a href="mailto:moonmdny@gmail.com"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="4.6" width="19.2" height="14.8" rx="2.4"/><path d="m3.4 6.4 8.6 6.2 8.6-6.2"/></svg>moonmdny@gmail.com</a></li>
+          <li data-i18n="con.hours.v">Mon · Wed · Fri<br>9:00 AM to 6:00 PM</li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="foot.locations">Locations</h3>
+        <ul>
+          <li data-i18n="con.office1">Flushing, NY</li>
+          <li data-i18n="con.office2">Englewood Cliffs, NJ</li>
+          <li data-i18n="con.note">Consultations in English, Korean and Chinese.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__note">
+      <span>&copy; <span data-year>2026</span> Taewon Moon, MD. All rights reserved.</span>
+      <span data-i18n="foot.disclaimer">This site is for information only and is not medical advice. Individual results vary.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
+<script src="assets/js/three-hero.js"></script>
+</body>
+</html>
