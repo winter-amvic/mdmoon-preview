@@ -547,3 +547,36 @@ html[lang] .section__head h2 { font-size: calc(var(--t-h2) * var(--f-display)); 
   }
   .hero__inner { padding-top: 320px !important; padding-bottom: 2.4rem !important; }
 }
+
+/* ==========================================================================
+   S1 히어로 최종 (en 피드백) — ① 사진 흰 배경 ↔ 페이지 종이색 대비 제거(mix-blend multiply)
+   ② 얼굴만 보이던 크롭을 상반신·손까지 보이게 축소
+   ========================================================================== */
+.hero { background: var(--ivory) !important; }
+.hero::before {
+  inset: 0 0 8% auto !important;
+  width: 44% !important;
+  background-image: url("../media/mdmoon_125360620.jpg") !important;
+  background-size: auto 78% !important;
+  background-position: 100% 40% !important;
+  background-repeat: no-repeat !important;
+  background-blend-mode: normal !important;
+  mix-blend-mode: multiply !important;      /* 페이지 종이색과 자연히 합쳐져 경계가 사라진다 */
+  filter: saturate(.95) contrast(1.02) !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+@media (max-width: 1080px) {
+  .hero { min-height: auto !important; padding-bottom: 0 !important; }
+  .hero::before {
+    inset: 0 0 auto 0 !important;
+    width: 100% !important;
+    height: 300px !important;
+    background-size: auto 92% !important;
+    background-position: 100% 45% !important;
+    mix-blend-mode: multiply !important;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 72%, rgba(0,0,0,0) 100%) !important;
+    mask-image: linear-gradient(180deg, #000 0%, #000 72%, rgba(0,0,0,0) 100%) !important;
+  }
+  .hero__inner { padding-top: 300px !important; padding-bottom: 2.4rem !important; }
+}
