@@ -79,6 +79,7 @@ jobs:
             exit 0
           fi
           rsync -a --delete --delay-updates --chmod=D755,F644 \
+            --exclude='*.md' \
             "${GITHUB_WORKSPACE}/site-a/" "${BASE}/b/"
           test -f "${BASE}/b/index.html" || { echo "::error::b/index.html 이 없습니다"; exit 1; }
           du -sh "${BASE}/b"
@@ -93,6 +94,7 @@ jobs:
             exit 0
           fi
           rsync -a --delete --delay-updates --chmod=D755,F644 \
+            --exclude='*.md' \
             "${GITHUB_WORKSPACE}/site-a-person/" "${BASE}/c/"
           test -f "${BASE}/c/index.html" || { echo "::error::c/index.html 이 없습니다"; exit 1; }
           du -sh "${BASE}/c"
