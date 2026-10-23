@@ -23,7 +23,7 @@ env:
 jobs:
   deploy:
     name: rsync sites to NAS
-    runs-on: [self-hosted, linux, x64]
+    runs-on: [self-hosted, Linux, X64]
     timeout-minutes: 20
 
     steps:
