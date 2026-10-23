@@ -74,6 +74,17 @@
   var startLang = preferred();
   if (window.I18N) apply(startLang);
 
+  /* --------------------------------------------------------- skip link */
+  /* #main 은 tabindex="-1" 이라 focus() 로 포커스가 실제 이동한다.
+     앵커 기본동작(해시 이동)은 그대로 둔다 — preventDefault 하지 않음. */
+  var skipLink = document.querySelector(".skip-link");
+  var mainEl = document.getElementById("main");
+  if (skipLink && mainEl) {
+    skipLink.addEventListener("click", function () {
+      mainEl.focus();
+    });
+  }
+
   /* ------------------------------------------------------------ drawer */
   var drawer = document.querySelector(".drawer");
   var openBtn = document.querySelector(".menu-btn");
