@@ -66,6 +66,10 @@ jobs:
             --exclude='site-a-person/' \
             --chmod=D755,F644 \
             "${GITHUB_WORKSPACE}/" "${BASE}/main/"
+
+          # rsync --chmod 가 적용되지 않는 경우가 있어 권한을 확정한다.
+          find "${BASE}/main" -type d -exec chmod 755 {} +
+          find "${BASE}/main" -type f -exec chmod 644 {} +
           test -f "${BASE}/main/index.html" || { echo "::error::main/index.html 이 없습니다"; exit 1; }
           du -sh "${BASE}/main"
 
@@ -81,6 +85,10 @@ jobs:
           rsync -a --delete --delete-excluded --delay-updates --chmod=D755,F644 \
             --exclude='*.md' \
             "${GITHUB_WORKSPACE}/site-a/" "${BASE}/b/"
+
+          # rsync --chmod 가 적용되지 않는 경우가 있어 권한을 확정한다.
+          find "${BASE}/b" -type d -exec chmod 755 {} +
+          find "${BASE}/b" -type f -exec chmod 644 {} +
           test -f "${BASE}/b/index.html" || { echo "::error::b/index.html 이 없습니다"; exit 1; }
           du -sh "${BASE}/b"
 
@@ -96,6 +104,10 @@ jobs:
           rsync -a --delete --delete-excluded --delay-updates --chmod=D755,F644 \
             --exclude='*.md' \
             "${GITHUB_WORKSPACE}/site-a-person/" "${BASE}/c/"
+
+          # rsync --chmod 가 적용되지 않는 경우가 있어 권한을 확정한다.
+          find "${BASE}/c" -type d -exec chmod 755 {} +
+          find "${BASE}/c" -type f -exec chmod 644 {} +
           test -f "${BASE}/c/index.html" || { echo "::error::c/index.html 이 없습니다"; exit 1; }
           du -sh "${BASE}/c"
 
