@@ -1,0 +1,109 @@
+name: Deploy to UGREEN NAS
+
+# main 브랜치에 push 되면 NAS self-hosted runner 에서 실행된다.
+# - 배포 대상 3개 디렉터리 외에는 절대 건드리지 않는다.
+# - GitHub Pages 배포는 기존 설정을 그대로 두며 이 워크플로가 변경하지 않는다.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}      # 수동 재배포용 (Actions 탭에서 실행 가능)
+
+permissions:
+  contents: read
+
+# 배포가 겹치면 rsync 가 서로를 덮어쓸 수 있으므로 순차 실행
+concurrency:
+  group: nas-deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  NAS_BASE: /volume1/docker/mdmoon.com
+
+jobs:
+  deploy:
+    name: rsync sites to NAS
+    runs-on: [self-hosted, linux, x64]
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          clean: true
+
+      - name: Guard — 대상 경로 검증
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE="${NAS_BASE}"
+          if [ -z "${BASE}" ] || [ "${BASE}" = "/" ]; then
+            echo "::error::NAS_BASE 가 비었거나 루트입니다. 중단합니다."
+            exit 1
+          fi
+          case "${BASE}" in
+            /volume1/docker/mdmoon.com) ;;
+            *) echo "::error::NAS_BASE 가 허용 경로가 아닙니다: ${BASE}"; exit 1 ;;
+          esac
+          mkdir -p "${BASE}/main" "${BASE}/b" "${BASE}/c"
+          echo "배포 대상:"
+          echo "  root          -> ${BASE}/main/"
+          echo "  site-a/       -> ${BASE}/b/"
+          echo "  site-a-person -> ${BASE}/c/"
+          command -v rsync >/dev/null || { echo "::error::runner 에 rsync 가 없습니다"; exit 1; }
+
+      - name: Deploy root site → main/
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE="${NAS_BASE}"
+          # GitHub 관리용 파일과 사이트 하위 디렉터리는 배포에서 제외한다.
+          rsync -a --delete --delay-updates \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='README.md' \
+            --exclude='site-a/' \
+            --exclude='site-a-person/' \
+            --chmod=D755,F644 \
+            "${GITHUB_WORKSPACE}/" "${BASE}/main/"
+          test -f "${BASE}/main/index.html" || { echo "::error::main/index.html 이 없습니다"; exit 1; }
+          du -sh "${BASE}/main"
+
+      - name: Deploy site-a → b/
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE="${NAS_BASE}"
+          if [ ! -d "${GITHUB_WORKSPACE}/site-a" ]; then
+            echo "::warning::저장소에 site-a/ 가 없어 b/ 배포를 건너뜁니다."
+            exit 0
+          fi
+          rsync -a --delete --delay-updates --chmod=D755,F644 \
+            "${GITHUB_WORKSPACE}/site-a/" "${BASE}/b/"
+          test -f "${BASE}/b/index.html" || { echo "::error::b/index.html 이 없습니다"; exit 1; }
+          du -sh "${BASE}/b"
+
+      - name: Deploy site-a-person → c/
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE="${NAS_BASE}"
+          if [ ! -d "${GITHUB_WORKSPACE}/site-a-person" ]; then
+            echo "::warning::저장소에 site-a-person/ 이 없어 c/ 배포를 건너뜁니다."
+            exit 0
+          fi
+          rsync -a --delete --delay-updates --chmod=D755,F644 \
+            "${GITHUB_WORKSPACE}/site-a-person/" "${BASE}/c/"
+          test -f "${BASE}/c/index.html" || { echo "::error::c/index.html 이 없습니다"; exit 1; }
+          du -sh "${BASE}/c"
+
+      - name: Verify — 금지 경로 미변경 확인
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE="${NAS_BASE}"
+          echo "배포 완료 파일 수:"
+          for d in main b c; do
+            printf '  %-5s %s files\n' "$d" "$(find "${BASE}/${d}" -type f | wc -l)"
+          done
+          echo "사이트 루트 외 경로는 이 워크플로가 접근하지 않습니다."
