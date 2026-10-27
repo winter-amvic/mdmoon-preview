@@ -55,6 +55,11 @@
     document.documentElement.setAttribute("lang", lang === "zh" ? "zh-CN" : lang);
     document.documentElement.setAttribute("data-lang", lang);
 
+    /* 스크린리더에 언어 변경을 알린다 */
+    var statusEl = document.getElementById("lang-status");
+    var activeBtn = document.querySelector('.lang__btn[data-lang="' + lang + '"]');
+    if (statusEl && activeBtn) statusEl.textContent = activeBtn.textContent.trim();
+
     document.querySelectorAll(".lang__btn").forEach(function (b) {
       b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
     });
@@ -79,17 +84,36 @@
   var openBtn = document.querySelector(".menu-btn");
   var closeBtn = document.querySelector(".drawer__close");
 
+  /* 패널 상태를 한 곳에서 관리한다: 시각(is-open) + 접근성(aria-hidden) + 탭 순서(inert)
+     + 트리거 상태(aria-expanded) + 포커스 복귀. 닫힌 드로어의 링크는 탭 순서에 남지 않는다. */
+  function setDrawer(open) {
+    if (!drawer) return;
+    var hadFocus = drawer.contains(document.activeElement);
+    drawer.classList.toggle("is-open", open);
+    drawer.setAttribute("aria-hidden", open ? "false" : "true");
+    if (open) {
+      drawer.removeAttribute("inert");
+    } else {
+      drawer.setAttribute("inert", "");
+    }
+    document.body.style.overflow = open ? "hidden" : "";
+    if (openBtn) openBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) {
+      /* is-open 스타일을 강제 반영한 뒤 포커스 이동 (rAF는 백그라운드 탭에서 생략될 수 있다) */
+      void drawer.offsetHeight;
+      if (closeBtn) closeBtn.focus();
+    } else if (hadFocus && openBtn) {
+      openBtn.focus();
+    }
+  }
+
   if (openBtn && drawer) {
     openBtn.addEventListener("click", function () {
-      drawer.classList.add("is-open");
-      document.body.style.overflow = "hidden";
-      if (closeBtn) closeBtn.focus();
+      setDrawer(true);
     });
   }
   function closeDrawer() {
-    if (!drawer) return;
-    drawer.classList.remove("is-open");
-    document.body.style.overflow = "";
+    setDrawer(false);
   }
   if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
   if (drawer) {
@@ -97,8 +121,9 @@
       a.addEventListener("click", closeDrawer);
     });
   }
+  if (drawer) setDrawer(false);
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeDrawer();
+    if (e.key === "Escape" && drawer && drawer.classList.contains("is-open")) closeDrawer();
   });
 
   /* ------------------------------------------------------- sticky header */

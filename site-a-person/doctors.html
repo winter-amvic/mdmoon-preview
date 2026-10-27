@@ -43,15 +43,15 @@
     </nav>
     <div class="lang" role="group" data-i18n-label="lang.aria" aria-label="Language">
       <button class="lang__btn" data-lang="en" aria-pressed="true">EN</button>
-      <button class="lang__btn" data-lang="ko" aria-pressed="false">한국어</button>
-      <button class="lang__btn" data-lang="zh" aria-pressed="false">中文</button>
+      <button class="lang__btn" data-lang="ko" aria-pressed="false" lang="ko">한국어</button>
+      <button class="lang__btn" data-lang="zh" aria-pressed="false" lang="zh-Hans">中文</button>
     </div>
     <a class="nav__cta" href="contact.html" data-i18n="nav.cta">Free consultation</a>
-    <button class="menu-btn" aria-label="Open menu" data-i18n-label="menu.aria"><span></span></button>
+    <button class="menu-btn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false" data-i18n-label="menu.aria"><span></span></button>
   </div>
 </header>
 
-<div class="drawer" aria-hidden="false">
+<div class="drawer" id="drawer" aria-hidden="true" inert>
   <div class="drawer__top">
     <a class="brand " href="index.html" aria-label="Taewon Moon, MD — Plastic Surgery &amp; Laser Clinic">
         <img class="brand__logo" src="assets/media/logo_header_hd_deep.png"
@@ -67,10 +67,10 @@
     <a href="contact.html" data-i18n="nav.contact">Contact</a>
   </nav>
     <a class="btn btn--gold drawer__cta" href="contact.html#book" data-i18n="hero.cta1">Book a free consultation</a>
-  <div class="lang" role="group" aria-label="Language">
+  <div class="lang" role="group" data-i18n-label="lang.aria" aria-label="Language">
     <button class="lang__btn" data-lang="en" aria-pressed="true">EN</button>
-    <button class="lang__btn" data-lang="ko" aria-pressed="false">한국어</button>
-    <button class="lang__btn" data-lang="zh" aria-pressed="false">中文</button>
+    <button class="lang__btn" data-lang="ko" aria-pressed="false" lang="ko">한국어</button>
+    <button class="lang__btn" data-lang="zh" aria-pressed="false" lang="zh-Hans">中文</button>
   </div>
 </div>
 <section class="hero">
@@ -87,7 +87,7 @@
       <svg class="hero__q hero__q--close" viewBox="0 0 48 34" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 20.5C0 9.6 6.4 2.2 17.4 0l2.3 5.6C12.1 8 8.2 12.3 7.7 17.3H15v16.2H0V20.5z"/><path fill="currentColor" d="M27.5 20.5C27.5 9.6 33.9 2.2 44.9 0l2.3 5.6c-7.6 2.4-11.5 6.7-12 11.7h7.3v16.2H27.5V20.5z"/></svg>
     </div>
       <div class="hero__actions reveal">
-        <a class="btn btn--gold" href="contact.html"><span data-i18n="hero.cta1">Book a free consultation</span><span class="btn__arrow">→</span></a>
+        <a class="btn btn--gold" href="contact.html"><span data-i18n="hero.cta1">Book a free consultation</span><span class="btn__arrow" aria-hidden="true">→</span></a>
         <a class="btn btn--ghost" href="services.html"><span data-i18n="hero.cta2">Explore services</span></a>
       </div>
 
@@ -167,7 +167,7 @@
     </div>
     <div class="cta__actions reveal">
       <a class="btn btn--gold" href="tel:+12015030066"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16.9v3a2 2 0 0 1-2.2 2 19.6 19.6 0 0 1-8.5-3 19.3 19.3 0 0 1-6-6 A19.6 19.6 0 0 1 1.3 4.3 2 2 0 0 1 3.3 2.1h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L7.2 10a15.9 15.9 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.6 2z"/></svg><span data-i18n="cta.btn1">Call 1-201-503-0066</span></a>
-      <a class="btn btn--ghost" href="mailto:moonmdny@gmail.com"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="4.6" width="19.2" height="14.8" rx="2.4"/><path d="m3.4 6.4 8.6 6.2 8.6-6.2"/></svg><span data-i18n="cta.btn2">Send an email</span><span class="btn__arrow">→</span></a>
+      <a class="btn btn--ghost" href="mailto:moonmdny@gmail.com"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.4" y="4.6" width="19.2" height="14.8" rx="2.4"/><path d="m3.4 6.4 8.6 6.2 8.6-6.2"/></svg><span data-i18n="cta.btn2">Send an email</span><span class="btn__arrow" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
