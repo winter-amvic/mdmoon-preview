@@ -1,0 +1,60 @@
+/* theme.css — a (Editorial Authority) · themes.py 에서 자동 생성. 직접 고치지 말 것. */
+:root { color-scheme: light; }
+[data-theme="a"] {
+  --c-bg: #f7f5f0;
+  --c-surface: #fffdf8;
+  --c-surface-2: #efeae0;
+  --c-ink: #15191e;
+  --c-ink-soft: #3d444d;
+  --c-muted: #6b6558;
+  --c-line: #ddd6c8;
+  --c-line-soft: #e9e4da;
+  --c-accent: #7c5a2e;
+  --c-accent-ink: #ffffff;
+  --c-accent-soft: #f0e7d6;
+  --c-dark: #15191e;
+  --c-dark-ink: #f4f1ea;
+  --c-focus: #1f4f8f;
+  --f-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, "Noto Serif KR", serif;
+  --f-body: "Inter", -apple-system, "Segoe UI", "Malgun Gothic", "Noto Sans KR", "Noto Sans SC", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r-sm: 2px;
+  --r-md: 3px;
+  --r-lg: 4px;
+  --r-pill: 999px;
+}
+/* variant: editorial */
+.hero--editorial .hero__top { padding-block: clamp(2.25rem, 6vw, 5rem) var(--sp-4); }
+.hero--editorial .hero__title { max-width: 20ch; }
+.hero--editorial .hero__lower {
+  display: grid; gap: var(--sp-3); align-items: end; margin-top: var(--sp-4);
+}
+.hero--editorial .hero__lede { margin-top: 0; }
+.hero--editorial .hero__band { margin: 0; }
+.hero--editorial .hero__band-img { aspect-ratio: 16 / 9; object-fit: cover; object-position: center 62%; width: 100%; }
+.hero--editorial .facts {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-3);
+  margin-top: var(--sp-4); padding-top: var(--sp-3); border-top: 1px solid var(--c-line);
+}
+@media (min-width: 861px) {
+  .hero--editorial .hero__lower { grid-template-columns: 1.25fr auto; }
+}
+@media (max-width: 640px) {
+  .hero--editorial .facts { grid-template-columns: 1fr; gap: var(--sp-2); }
+  .hero--editorial .hero__band-img { aspect-ratio: 4 / 3; }
+}
+/* variant: rule */
+.nav__link { border-bottom: 2px solid transparent; }
+/* variant: airy */
+:root { --sp-section: clamp(4.5rem, 9vw, 8.5rem); }
+.sec--intro .split { gap: var(--sp-5); }
+.h2 { letter-spacing: -0.02em; }
+.lede { line-height: 1.6; }
+/* variant: subtle */
+.js .hero__title, .js .phead__title { animation: rise var(--dur-slow) var(--ease) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.hdr__in { border-bottom: 0; }
+.sec--services { border-top: 1px solid var(--c-line); }
+.svcrow__name { font-weight: 600; }
+.ftr__about { font-size: var(--fs-small); }
+

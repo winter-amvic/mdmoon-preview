@@ -1,0 +1,67 @@
+/* theme.css — c (Clarity Index) · themes.py 에서 자동 생성. 직접 고치지 말 것. */
+:root { color-scheme: light; }
+[data-theme="c"] {
+  --c-bg: #fbfbfd;
+  --c-surface: #ffffff;
+  --c-surface-2: #eef3f6;
+  --c-ink: #0e1620;
+  --c-ink-soft: #2c3a48;
+  --c-muted: #5a6b7b;
+  --c-line: #d7dee6;
+  --c-line-soft: #e7edf2;
+  --c-accent: #0b6159;
+  --c-accent-ink: #ffffff;
+  --c-accent-soft: #e2f1ee;
+  --c-dark: #0e1620;
+  --c-dark-ink: #eef3f6;
+  --c-focus: #0b6159;
+  --f-display: "IBM Plex Sans", -apple-system, "Segoe UI", "Malgun Gothic", "Noto Sans KR", "Noto Sans SC", sans-serif;
+  --f-body: "IBM Plex Sans", -apple-system, "Segoe UI", "Malgun Gothic", "Noto Sans KR", "Noto Sans SC", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-pill: 6px;
+}
+/* variant: panel */
+.hero--panel { border-bottom: 1px solid var(--c-line); }
+.hero--panel .hero__grid { display: grid; gap: var(--sp-4); padding-block: clamp(2rem, 5vw, 3.5rem); }
+.hero--panel .hero__title { max-width: 17ch; }
+.hero--panel .hero__side {
+  background: var(--c-surface); border: 1px solid var(--c-line); border-radius: var(--r-md);
+  padding: var(--sp-3); align-self: start; display: grid; gap: var(--sp-2);
+}
+.hero--panel .facts { gap: var(--sp-2); }
+.hero--panel .hero__quick {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2);
+  padding-top: var(--sp-2); border-top: 1px solid var(--c-line);
+  font-size: var(--fs-small); font-weight: 600; color: var(--c-accent); text-decoration: none;
+}
+.hero--panel .hero__quick:hover { text-decoration: underline; }
+.hero--panel .hero__strip { margin: 0; }
+.hero--panel .hero__strip-img { aspect-ratio: 16 / 7; object-fit: cover; object-position: center 50%; width: 100%; }
+@media (min-width: 861px) {
+  .hero--panel .hero__grid { grid-template-columns: minmax(0, 1.45fr) minmax(0, .62fr); align-items: start; }
+  .hero--panel .hero__side { position: sticky; top: calc(var(--header-h) + 1rem); }
+}
+@media (max-width: 640px) {
+  .hero--panel .hero__strip-img { aspect-ratio: 4 / 3; }
+}
+/* variant: tab */
+.nav__list { gap: 0; border: 1px solid var(--c-line); border-radius: var(--r-sm); overflow: hidden; }
+.nav__link { padding: .5rem .85rem; border: 0; border-radius: 0; }
+.nav__link + li .nav__link { border-left: 1px solid var(--c-line-soft); }
+.nav__link[aria-current="page"] { background: var(--c-ink); color: var(--c-bg); border: 0; }
+/* variant: compact */
+:root { --sp-section: clamp(2.75rem, 5vw, 4.75rem); --fs-body: 0.97rem; }
+body { line-height: 1.58; }
+.sec { padding-block: var(--sp-section); }
+.lede { line-height: 1.5; }
+.sechead { margin-bottom: var(--sp-4); }
+/* variant: minimal */
+
+.phead__title { letter-spacing: -0.015em; }
+.svcdetail__h { font-size: clamp(1.35rem, 2.2vw, 1.85rem); }
+.tbl tbody th { width: 42%; }
+.step { padding-top: var(--sp-1); }
+
