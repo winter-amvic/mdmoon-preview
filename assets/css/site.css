@@ -1034,3 +1034,7 @@ html[lang="zh"] .hero h1 { line-height: 1.18; }
 .hair-credit, .hair-note { max-width: 960px; margin-left: auto; margin-right: auto; }
 .ba-grid { max-width: 1180px; margin-left: auto; margin-right: auto; }
 .ba__meta { margin: .5rem 0 0; font-size: .7rem; letter-spacing: .02em; color: rgba(10,26,36,.55); }
+.ba-group { max-width: 1180px; margin: 1.9rem auto .7rem; font-size: .72rem; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(10,26,36,.5); }
+.ba-female { max-width: 640px; margin: 0 auto; }
+.ba--wide .ba__img img { aspect-ratio: 1 / 1; }
