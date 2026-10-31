@@ -990,3 +990,47 @@ html[lang="zh"] .hero h1 { line-height: 1.18; }
   .masthead, .topbar, .hero__actions, .scroll-cue, .cta, .video { display: none; }
   body { background: #fff; color: #000; }
 }
+
+/* ── 2026-10-27: 진료 4개(성형·레이저·지방흡입·모발이식) 그리드 ───────────── */
+.svc-grid--four .svc { grid-column: span 3; }
+.svc-grid--four .svc--cta { grid-column: span 6; }
+@media (max-width: 900px) {
+  .svc-grid--four .svc { grid-column: span 1; }
+  .svc-grid--four .svc--cta { grid-column: span 2; }
+}
+@media (max-width: 600px) {
+  .svc-grid--four .svc--cta { grid-column: span 1; }
+}
+
+/* ── 2026-10-27: 레이저 모발이식 — 영상 + 시술 전/후 ──────────────────────── */
+.hair-media { margin-top: 2rem; }
+.hair-video {
+  position: relative; aspect-ratio: 16 / 9; background: #0a1a24;
+  border: 1px solid rgba(10, 26, 36, 0.12); overflow: hidden;
+}
+.hair-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.hair-credit { margin: 0.7rem 0 0; font-size: 0.76rem; line-height: 1.5; color: rgba(10, 26, 36, 0.55); }
+.ba-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; margin-top: 1.3rem; }
+.ba { margin: 0; }
+.ba__pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.ba__img { position: relative; display: block; }
+.ba__img img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
+.ba__tag {
+  position: absolute; left: 0.4rem; bottom: 0.4rem; font-size: 0.66rem; letter-spacing: 0.08em;
+  text-transform: uppercase; background: rgba(10, 26, 36, 0.74); color: #f8f5ef; padding: 0.15rem 0.45rem;
+}
+.ba__tag--after { background: rgba(158, 120, 66, 0.92); }
+.hair-note {
+  margin: 1.1rem 0 0; padding-top: 0.9rem; border-top: 1px solid rgba(10, 26, 36, 0.12);
+  font-size: 0.77rem; line-height: 1.65; color: rgba(10, 26, 36, 0.6);
+}
+@media (max-width: 900px) { .ba-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .ba-grid { grid-template-columns: 1fr; } }
+
+/* 모발이식 미디어 밴드 (전체 폭) */
+.hair-head { max-width: 46rem; margin-bottom: 1.6rem; }
+.hair-head h2 { margin: 0.4rem 0 0; }
+.hair-video { max-width: 960px; margin: 0 auto; }
+.hair-credit, .hair-note { max-width: 960px; margin-left: auto; margin-right: auto; }
+.ba-grid { max-width: 1180px; margin-left: auto; margin-right: auto; }
+.ba__meta { margin: .5rem 0 0; font-size: .7rem; letter-spacing: .02em; color: rgba(10,26,36,.55); }
