@@ -1038,3 +1038,12 @@ html[lang="zh"] .hero h1 { line-height: 1.18; }
   text-transform: uppercase; color: rgba(10,26,36,.5); }
 .ba-female { max-width: 640px; margin: 0 auto; }
 .ba--wide .ba__img img { aspect-ratio: 1 / 1; }
+
+/* 2026-10-30: 의료진 페이지 — ARTAS 장비 사진 3장 */
+.dev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.6rem; }
+.dev__item { margin: 0; background: #fff; border: 1px solid rgba(10,26,36,.1); }
+.dev__item img { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.dev__item figcaption { padding: .65rem .8rem; font-size: .76rem; line-height: 1.45; color: rgba(10,26,36,.62); }
+.dev__item:nth-child(3) img { object-fit: contain; background: #f4f6f8; }
+@media (max-width: 900px) { .dev-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .dev-grid { grid-template-columns: 1fr; } }
