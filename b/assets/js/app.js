@@ -105,6 +105,10 @@
       var status = $('[data-form-status]', form);
       var L = function () { return (window.__MDMOON_I18N__ && window.__MDMOON_I18N__[window.__mdmoonLang || 'en']) || {}; };
 
+      // FormSubmit 리다이렉트는 절대 URL 이어야 한다(상대경로면 서드파티 도메인에서 404).
+      var nextField = $('input[name="_next"]', form);
+      if (nextField) nextField.value = window.location.origin + '/contact.html?sent=1';
+
       function fieldError(el) {
         if (el.type === 'email' && el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value)) return true;
         if (el.required) return !String(el.value).trim();

@@ -6,10 +6,10 @@
   --c-surface-2: #f7ece1;
   --c-ink: #2a211c;
   --c-ink-soft: #4a3d35;
-  --c-muted: #7a6a5e;
+  --c-muted: #6d5d52;
   --c-line: #e9dbcd;
   --c-line-soft: #f2e8dc;
-  --c-accent: #a8542f;
+  --c-accent: #8f4322;
   --c-accent-ink: #ffffff;
   --c-accent-soft: #f6e4d8;
   --c-dark: #2a211c;
@@ -57,8 +57,17 @@
 .js .hero__lede { animation-delay: 90ms; }
 .js .hero__cta { animation-delay: 180ms; }
 @keyframes softin { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.btn { border-radius: var(--r-pill); padding-inline: 1.5rem; }
 .svccard { box-shadow: var(--shadow); }
+.sec--intro .split {
+  background: var(--c-surface); padding: clamp(1.25rem, 3.5vw, 2.75rem);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-soft);
+}
 .sec--intro .split__media { border-radius: var(--r-lg); }
-.offices .office { border-radius: var(--r-lg); }
+.svcdetail {
+  background: var(--c-surface); padding: var(--sp-4); border: 1px solid var(--c-line-soft);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-soft);
+}
+.offices .office { border-radius: var(--r-lg); box-shadow: var(--shadow-soft); }
 .ctaband__t { font-weight: 500; }
 

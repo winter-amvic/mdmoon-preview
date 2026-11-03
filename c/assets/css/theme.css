@@ -41,7 +41,7 @@
 .hero--panel .hero__strip { margin: 0; }
 .hero--panel .hero__strip-img { aspect-ratio: 16 / 7; object-fit: cover; object-position: center 50%; width: 100%; }
 @media (min-width: 861px) {
-  .hero--panel .hero__grid { grid-template-columns: minmax(0, 1.45fr) minmax(0, .62fr); align-items: start; }
+  .hero--panel .hero__grid { grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); align-items: start; }
   .hero--panel .hero__side { position: sticky; top: calc(var(--header-h) + 1rem); }
 }
 @media (max-width: 640px) {
@@ -50,18 +50,38 @@
 /* variant: tab */
 .nav__list { gap: 0; border: 1px solid var(--c-line); border-radius: var(--r-sm); overflow: hidden; }
 .nav__link { padding: .5rem .85rem; border: 0; border-radius: 0; }
-.nav__link + li .nav__link { border-left: 1px solid var(--c-line-soft); }
+.nav__list > li + li .nav__link { border-left: 1px solid var(--c-line-soft); }
 .nav__link[aria-current="page"] { background: var(--c-ink); color: var(--c-bg); border: 0; }
 /* variant: compact */
-:root { --sp-section: clamp(2.75rem, 5vw, 4.75rem); --fs-body: 0.97rem; }
+:root {
+  --sp-section: clamp(2.5rem, 4.8vw, 4.5rem);
+  --sp-2: 0.7rem; --sp-3: 1.05rem; --sp-4: 1.5rem; --sp-5: 2.25rem;
+  --fs-body: 0.97rem;
+}
 body { line-height: 1.58; }
 .sec { padding-block: var(--sp-section); }
 .lede { line-height: 1.5; }
 .sechead { margin-bottom: var(--sp-4); }
+.svcrow__link { padding-block: var(--sp-2); }
+.tbl tbody th, .tbl tbody td { padding: .6rem .75rem; }
 /* variant: minimal */
 
 .phead__title { letter-spacing: -0.015em; }
+.eyebrow::before { display: none; }
+.eyebrow {
+  font-family: var(--f-mono); background: var(--c-accent-soft); color: var(--c-accent);
+  display: inline-flex; padding: .22rem .55rem; border-radius: var(--r-sm); letter-spacing: .08em;
+}
 .svcdetail__h { font-size: clamp(1.35rem, 2.2vw, 1.85rem); }
+.svcdetail {
+  background: var(--c-surface); border: 1px solid var(--c-line);
+  border-radius: var(--r-md); padding: var(--sp-3);
+}
+.step {
+  background: var(--c-surface); border: 1px solid var(--c-line);
+  border-radius: var(--r-md); padding: var(--sp-3);
+}
+.steps { gap: var(--sp-2); }
 .tbl tbody th { width: 42%; }
-.step { padding-top: var(--sp-1); }
+.hero__quick { font-family: var(--f-mono); letter-spacing: .02em; }
 

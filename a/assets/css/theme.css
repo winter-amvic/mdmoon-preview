@@ -46,7 +46,10 @@
 /* variant: rule */
 .nav__link { border-bottom: 2px solid transparent; }
 /* variant: airy */
-:root { --sp-section: clamp(4.5rem, 9vw, 8.5rem); }
+:root {
+  --sp-section: clamp(4.5rem, 9vw, 8.5rem);
+  --sp-3: 1.6rem; --sp-4: 2.5rem; --sp-5: 3.75rem;
+}
 .sec--intro .split { gap: var(--sp-5); }
 .h2 { letter-spacing: -0.02em; }
 .lede { line-height: 1.6; }
@@ -54,7 +57,11 @@
 .js .hero__title, .js .phead__title { animation: rise var(--dur-slow) var(--ease) both; }
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 .hdr__in { border-bottom: 0; }
+.hero--editorial .hero__title { font-weight: 400; letter-spacing: -0.03em; }
 .sec--services { border-top: 1px solid var(--c-line); }
+.sec--intro, .sec--process, .sec--doctors, .sec--gallery { border-top: 1px solid var(--c-line); }
 .svcrow__name { font-weight: 600; }
+.step { border-top: 2px solid var(--c-ink); padding-top: var(--sp-3); }
+.svcdetail { border-top: 1px solid var(--c-ink); border-bottom: 0; padding-top: var(--sp-3); }
 .ftr__about { font-size: var(--fs-small); }
 
