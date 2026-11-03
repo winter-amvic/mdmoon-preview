@@ -89,6 +89,9 @@ window.I18N = {
   "foot.about": "Plastic surgery, laser care and hair restoration in Flushing, NY and Englewood Cliffs, NJ.",
   "foot.explore": "Explore",
   "foot.contact": "Contact",
+  "mobar.call": "Call",
+  "mobar.book": "Consult",
+  "mobar.dir": "Directions",
   "foot.locations": "Locations",
   "foot.disclaimer": "This site is for information only and is not medical advice. Individual results vary.",
   "stats.1v": "17<sup>+</sup>",
@@ -120,6 +123,7 @@ window.I18N = {
   "form.note": "Sent to the clinic at moonmdny@gmail.com; the clinic can reply straight to your inbox. Please do not send medical records or sensitive details.",
   "form.sent": "Thank you — your request has been sent. The clinic will reply to your email shortly.",
   "gal.hair": "Hair restoration equipment",
+  "gal.service": "Treatment imagery",
   "gal.space": "The spaces",
   "gal.treat": "In treatment",
   "gal.team": "The team",
@@ -151,7 +155,7 @@ window.I18N = {
   "office.ny": "Flushing, NY",
   "office.nj.hours": "Mon · Wed · Fri<br>9:00 AM to 6:00 PM",
   "office.ny.hours": "Tue · Thu · Sat<br>9:00 AM to 5:00 PM",
-  "test.items": "<blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">Cleaner and more comfortable than I expected. Dr. Moon explained everything kindly, and when our appointment started late he apologised sincerely and made up for it. The ENT treatment went well too — one of the few places here I trust.</p><footer class=\"testi__author\">Angela Park</footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">It is a busy practice, so I expected a long wait — but they kept to the appointment time and I was seen properly. Better facilities than other clinics, and I am satisfied with both the price and the service. I have recommended them for both surgery and ENT.</p><footer class=\"testi__author\">Kelly Park</footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">I cannot say how grateful I am. After a bad cold I developed sinusitis — congested, constantly dripping, unable to breathe properly, with daily headaches. Other clinics barely helped and I feared surgery. With nasal irrigation and medication I improved within two weeks.</p><footer class=\"testi__author\">Sarah Kim</footer></blockquote>"
+  "test.items": "<blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">Cleaner and more comfortable than I expected. Dr. Moon explained everything kindly, and when our appointment started late he apologised sincerely and made up for it. The ENT treatment went well too — one of the few places here I trust.</p><footer class=\"testi__author\"><span class=\"testi__name\">Angela Park</span><span class=\"testi__src\">Patient review</span></footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">It is a busy practice, so I expected a long wait — but they kept to the appointment time and I was seen properly. Better facilities than other clinics, and I am satisfied with both the price and the service. I have recommended them for both surgery and ENT.</p><footer class=\"testi__author\"><span class=\"testi__name\">Kelly Park</span><span class=\"testi__src\">Patient review</span></footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">I cannot say how grateful I am. After a bad cold I developed sinusitis — congested, constantly dripping, unable to breathe properly, with daily headaches. Other clinics barely helped and I feared surgery. With nasal irrigation and medication I improved within two weeks.</p><footer class=\"testi__author\"><span class=\"testi__name\">Sarah Kim</span><span class=\"testi__src\">Patient review</span></footer></blockquote>"
  },
  "ko": {
   "meta.index.title": "문태원 성형외과 — 성형·레이저·모발이식 | 플러싱 NY · 잉글우드클리프스 NJ",
@@ -242,6 +246,9 @@ window.I18N = {
   "foot.about": "플러싱(NY)과 잉글우드클리프스(NJ)에서 성형외과·레이저·모발이식 진료를 제공합니다.",
   "foot.explore": "둘러보기",
   "foot.contact": "연락처",
+  "mobar.call": "전화",
+  "mobar.book": "상담",
+  "mobar.dir": "오시는 길",
   "foot.locations": "진료실",
   "foot.disclaimer": "본 사이트는 정보 제공 목적이며 의학적 조언이 아닙니다. 개인에 따라 결과가 다를 수 있습니다.",
   "stats.1v": "17<sup>+</sup>",
@@ -273,6 +280,7 @@ window.I18N = {
   "form.note": "문의는 병원 이메일(moonmdny@gmail.com)로 전달되며, 병원에서 바로 회신할 수 있습니다. 진료 기록 등 민감한 정보는 보내지 마세요.",
   "form.sent": "문의가 접수되었습니다. 병원에서 입력하신 이메일로 곧 회신드립니다.",
   "gal.hair": "모발이식 장비",
+  "gal.service": "진료 이미지",
   "gal.space": "진료 공간",
   "gal.treat": "시술 현장",
   "gal.team": "의료진",
@@ -304,7 +312,7 @@ window.I18N = {
   "office.ny": "플러싱 (NY)",
   "office.nj.hours": "월 · 수 · 금<br>오전 9:00 ~ 오후 6:00",
   "office.ny.hours": "화 · 목 · 토<br>오전 9:00 ~ 오후 5:00",
-  "test.items": "<blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">생각보다 깨끗하고 편안한 분위기에서 상담 받고 진료받고 왔어요. 문 선생님이 친절하게 상담해 주시고, 처음 갔을 때 약속보다 늦게 만났는데도 진심으로 사과해 주시고 더 잘해 주셔서 감사했어요. 이비인후과 치료도 잘 받았습니다. 미국에서 몇 없는 믿을만한 곳입니다.</p><footer class=\"testi__author\">Angela Park</footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">사람들이 많이 찾는 곳이라 처음엔 오래 기다려야 할 줄 알았는데, 시간 약속을 잘 지켜 주셔서 많이 기다리지 않고 충분히 진료받고 치료도 잘 받았어요. 다른 병원보다 시설도 좋고 가격도 서비스도 만족스럽습니다. 성형 쪽과 이비인후과 쪽 모두 지인들에게 추천했습니다.</p><footer class=\"testi__author\">Kelly Park</footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">축농증 때문에 고생했던 걸 생각하면 문태원 선생님께 얼마나 감사한지 몰라요. 감기 후에 생긴 축농증으로 코막힘은 물론 콧물이 계속 넘어가 숨을 제대로 쉴 수 없었고 두통도 항상 있었어요. 다른 병원 치료는 효과가 거의 없어 수술을 해야 하나 걱정했는데, 비강 세척과 약물 치료를 진행하며 2주 만에 호전되었어요.</p><footer class=\"testi__author\">Sarah Kim</footer></blockquote>"
+  "test.items": "<blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">생각보다 깨끗하고 편안한 분위기에서 상담 받고 진료받고 왔어요. 문 선생님이 친절하게 상담해 주시고, 처음 갔을 때 약속보다 늦게 만났는데도 진심으로 사과해 주시고 더 잘해 주셔서 감사했어요. 이비인후과 치료도 잘 받았습니다. 미국에서 몇 없는 믿을만한 곳입니다.</p><footer class=\"testi__author\"><span class=\"testi__name\">Angela Park</span><span class=\"testi__src\">환자 후기</span></footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">사람들이 많이 찾는 곳이라 처음엔 오래 기다려야 할 줄 알았는데, 시간 약속을 잘 지켜 주셔서 많이 기다리지 않고 충분히 진료받고 치료도 잘 받았어요. 다른 병원보다 시설도 좋고 가격도 서비스도 만족스럽습니다. 성형 쪽과 이비인후과 쪽 모두 지인들에게 추천했습니다.</p><footer class=\"testi__author\"><span class=\"testi__name\">Kelly Park</span><span class=\"testi__src\">환자 후기</span></footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">축농증 때문에 고생했던 걸 생각하면 문태원 선생님께 얼마나 감사한지 몰라요. 감기 후에 생긴 축농증으로 코막힘은 물론 콧물이 계속 넘어가 숨을 제대로 쉴 수 없었고 두통도 항상 있었어요. 다른 병원 치료는 효과가 거의 없어 수술을 해야 하나 걱정했는데, 비강 세척과 약물 치료를 진행하며 2주 만에 호전되었어요.</p><footer class=\"testi__author\"><span class=\"testi__name\">Sarah Kim</span><span class=\"testi__src\">환자 후기</span></footer></blockquote>"
  },
  "zh": {
   "meta.index.title": "文泰元 整形外科 — 整形 · 激光 · 植发 | 法拉盛 NY · 恩格尔伍德崖 NJ",
@@ -395,6 +403,9 @@ window.I18N = {
   "foot.about": "在法拉盛(NY)与恩格尔伍德崖(NJ)提供整形外科、激光护理与植发诊疗。",
   "foot.explore": "浏览",
   "foot.contact": "联系",
+  "mobar.call": "致电",
+  "mobar.book": "咨询",
+  "mobar.dir": "地址",
   "foot.locations": "诊所地址",
   "foot.disclaimer": "本站仅供信息参考，不构成医疗建议。个人效果存在差异。",
   "stats.1v": "17<sup>+</sup>",
@@ -426,6 +437,7 @@ window.I18N = {
   "form.note": "咨询将发送至诊所邮箱 moonmdny@gmail.com，诊所可直接回复您。请勿发送病历等敏感信息。",
   "form.sent": "已收到您的咨询，诊所将尽快通过电子邮件回复您。",
   "gal.hair": "植发设备",
+  "gal.service": "诊疗图像",
   "gal.space": "诊所空间",
   "gal.treat": "诊疗现场",
   "gal.team": "医疗团队",
@@ -457,6 +469,6 @@ window.I18N = {
   "office.ny": "法拉盛 (NY)",
   "office.nj.hours": "周一 · 周三 · 周五<br>上午 9:00 至 下午 6:00",
   "office.ny.hours": "周二 · 周四 · 周六<br>上午 9:00 至 下午 5:00",
-  "test.items": "<blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">环境比想象中更干净舒适。文医生耐心讲解，第一次就诊比预约时间晚了些，他真诚致歉并格外用心。耳鼻喉治疗也很顺利，是在美国少有的值得信赖的地方。</p><footer class=\"testi__author\">Angela Park</footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">这家诊所患者很多，本以为要等很久，但他们守时，很快就得到充分诊疗。设施比其他医院好，价格与服务都令人满意。整形和耳鼻喉两方面我都推荐给了朋友。</p><footer class=\"testi__author\">Kelly Park</footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">想起鼻窦炎受的苦，真不知道该怎么感谢文医生。感冒后得了鼻窦炎，鼻塞、鼻涕倒流、无法好好呼吸，还天天头痛。别处治疗几乎无效，我以为要手术，但通过鼻腔冲洗与药物治疗，两周就好转了。</p><footer class=\"testi__author\">Sarah Kim</footer></blockquote>"
+  "test.items": "<blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">环境比想象中更干净舒适。文医生耐心讲解，第一次就诊比预约时间晚了些，他真诚致歉并格外用心。耳鼻喉治疗也很顺利，是在美国少有的值得信赖的地方。</p><footer class=\"testi__author\"><span class=\"testi__name\">Angela Park</span><span class=\"testi__src\">患者评价</span></footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">这家诊所患者很多，本以为要等很久，但他们守时，很快就得到充分诊疗。设施比其他医院好，价格与服务都令人满意。整形和耳鼻喉两方面我都推荐给了朋友。</p><footer class=\"testi__author\"><span class=\"testi__name\">Kelly Park</span><span class=\"testi__src\">患者评价</span></footer></blockquote><blockquote class=\"testi__item\"><div class=\"testi__mark\" aria-hidden=\"true\">&ldquo;</div><p class=\"testi__body\">想起鼻窦炎受的苦，真不知道该怎么感谢文医生。感冒后得了鼻窦炎，鼻塞、鼻涕倒流、无法好好呼吸，还天天头痛。别处治疗几乎无效，我以为要手术，但通过鼻腔冲洗与药物治疗，两周就好转了。</p><footer class=\"testi__author\"><span class=\"testi__name\">Sarah Kim</span><span class=\"testi__src\">患者评价</span></footer></blockquote>"
  }
 };
