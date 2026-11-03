@@ -362,3 +362,11 @@ html[lang="zh"] .hero h1 { font-size: calc(var(--t-hero) * 0.78); }
   .mobar__btn .ico { width: 18px; height: 18px; }
   .mobar__btn--primary { background: #175a78; color: #fff; }
 }
+
+/* 2026-11-03: ARTAS 환자 영상 폭을 아래 전·후 사진 밴드(1180px)와 동일하게 */
+.hair-video,
+.hair-credit,
+.hair-note { max-width: 1180px; }
+@media (max-width: 560px) {
+  .hair-video, .hair-credit, .hair-note { max-width: 100%; }
+}
