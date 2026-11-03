@@ -9,8 +9,8 @@ name: Deploy candidates (a/b/c) to UGREEN NAS
 #   (승격 직전 현재 main 을 backup/pre-promote-<시각>/ 으로 자동 백업)
 
 on:
-  push:
-    branches: [main]
+  # 2026-11-03 고객 지시: a/b/c 후보 배포 전면 중지 (새 시안 제작 시 재개)
+  # push 자동 배포 제거 — 수동 실행(workflow_dispatch)만 남긴다.
   workflow_dispatch:
     inputs:
       promote:
@@ -32,7 +32,9 @@ env:
 
 jobs:
   deploy-candidates:
-    name: rsync candidates → NAS a/b/c
+    name: rsync candidates → NAS a/b/c (중지됨)
+    # 2026-11-03 고객 지시: 후보 슬롯 비움 · 새 시안 확정 전까지 배포 금지
+    if: ${{ false }}
     runs-on: [self-hosted, Linux, X64]
     timeout-minutes: 20
 
